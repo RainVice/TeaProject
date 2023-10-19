@@ -13,7 +13,7 @@ namespace TeaProject.Manager
     /// <summary>
     /// 基本管理器类
     /// </summary>
-    public class BaseManager : MonoSingleton<BaseManager>, IManager
+    public class BaseManager<T> : MonoSingleton<T>, IManager where T : MonoSingleton<T>
     {
     #region Public or protected fields and properties
         /// <summary>
