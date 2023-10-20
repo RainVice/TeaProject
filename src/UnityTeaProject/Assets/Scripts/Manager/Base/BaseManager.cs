@@ -39,10 +39,16 @@ namespace TeaProject.Manager
     
     #region Public or protected method
         /// <summary>
-        /// 初始化管理器。此方法应在派生类中实现。
+        /// 初始化管理器。此方法应在派生类实现时应先调用基类方法。
         /// </summary>
-        public virtual void Init(System.Object arg)
+        public virtual void Init(System.Object arg = null)
         {
+            if(m_IsReady)
+            {
+                string name = GetName();
+                Debug.LogWarning($"尝试初始化{name}，而{name}已经完成初始化");
+                throw new System.Exception($"重复初始化管理器！Name:[{name}]");
+            }
             m_IsReady = true;
         }
 
@@ -54,6 +60,7 @@ namespace TeaProject.Manager
         {
             return GetType().ToString();
         }
-        #endregion
+    #endregion
+
     }
 }
