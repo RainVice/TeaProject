@@ -33,6 +33,8 @@ namespace TeaProject
                     {
                         throw new Exception("尝试获取单例实例时出现错误！");
                     }
+                    if(m_Instance.m_IsGlobal)
+                        DontDestroyOnLoad(m_Instance.gameObject);
                 }
                 return m_Instance;
             }
@@ -46,7 +48,7 @@ namespace TeaProject
         {
             get 
             {
-                return m_Instance;
+                return m_IsGlobal;
             }
         }
     #endregion
@@ -64,6 +66,8 @@ namespace TeaProject
             if(m_Instance == null)
             {
                 m_Instance = this as T;
+                if(m_IsGlobal)
+                    DontDestroyOnLoad(gameObject);
             }
             else
             {

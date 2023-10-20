@@ -139,7 +139,13 @@ namespace TeaProject.Manager
     #region Private method
         private IEnumerator LoadLevelAsync(ILevel level)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(level.GetLevelIndex());
+            int index = level.GetLevelIndex();
+            if(index < 0 || index >= SceneManager.sceneCount)
+            {
+                Debug.LogError("要加载的场景索引不存在！");
+                throw new ArgumentException("关卡的索引不存在");
+            }
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
             while (!asyncLoad.isDone)
             {
                 yield return null;
