@@ -17,7 +17,7 @@ namespace TeaProject.Manager
     /// <summary>
     /// 关卡管理器
     /// </summary>
-    public class LevelManager : BaseManager
+    public class LevelManager : BaseManager<LevelManager>
     {
 
     #region Public or protected fields and properties
@@ -31,17 +31,20 @@ namespace TeaProject.Manager
                 return m_Levels.Peek();
             }
         }
+    #endregion
+
+    #region Private fields and properties
+        private Stack<ILevel> m_Levels = new Stack<ILevel>();
+    #endregion
+
+    #region Public or protected method
         /// <summary>
         /// 初始化关卡管理器
         /// </summary>
         /// <param name="startLevel">游戏开始时的场景</param>
         public override void Init(System.Object startLevel)
         {
-            if(IsReady)
-            {
-                Debug.LogWarning("尝试初始化关卡管理器，而场景管理器已经完成初始化");
-                return;
-            }
+            base.Init();
             ILevel level = startLevel as ILevel;
             if(level == null)
             {
@@ -51,13 +54,7 @@ namespace TeaProject.Manager
             m_Levels.Push(level);
             IsReady = true;
         }
-    #endregion
-
-    #region Private fields and properties
-        private Stack<ILevel> m_Levels = new Stack<ILevel>();
-    #endregion
-
-    #region Public or protected method
+        
         /// <summary>
         /// 加载当前关卡的下一个关卡
         /// </summary>
@@ -108,6 +105,34 @@ namespace TeaProject.Manager
             StartCoroutine(LoadLevelAsync(current));
             popLevel.End();
             current.Begin();
+        }
+
+        /// <summary>
+        /// 回到指定的关卡
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns>如果给定的场景在关卡栈中，则会回到指定的关卡并返回 true；如果不在关卡栈中，则不会加载关卡并返回 false</returns>
+        public bool PopTo(ILevel level)
+        {
+            Stack<ILevel> st = new Stack<ILevel>();
+            while(m_Levels.Count > 0 && !m_Levels.Peek().Equals(level))
+            {
+                st.Push(m_Levels.Pop());
+            }
+            
+            if(m_Levels.Count == 0)
+            {
+                while(st.Count > 0)
+                {
+                    m_Levels.Push(st.Pop());
+                }
+                return false;
+            }
+            else
+            {
+                StartCoroutine(LoadLevelAsync(m_Levels.Peek()));
+                return true;
+            }
         }
     #endregion
 

@@ -15,7 +15,7 @@ using UnityEngine.UI;
 namespace TeaProject.UI
 {
     /// <summary>
-    /// 所有窗口类UI组件的基类
+    /// 窗口类UI组件的基类
     /// </summary>
     public abstract class UIWindow : UIMonoBehaviour
     {
