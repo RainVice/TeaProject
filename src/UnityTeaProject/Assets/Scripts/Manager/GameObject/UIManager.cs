@@ -2,8 +2,8 @@
 // Script Name          : UIManager.cs
 // Author Name          : 刘坤
 // Create Time          : 2023/10/20
-// Last Modified Time   : 2023/10/20
-// Description          : 
+// Last Modified Time   : 2023/10/23
+// Description          : 编写UI管理器类
 //**********************************************************************
 
 using System.Collections.Generic;
