@@ -7,10 +7,7 @@ using System.Net.Mime;
 // Description          : 编写UI窗口基类
 //**********************************************************************
 
-using System;
-using TeaProject.Manager;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TeaProject.UI
 {

@@ -41,11 +41,11 @@ namespace TeaProject.UI
         /// <summary>
         /// UI控件被显示时的回调函数
         /// </summary>
-        public virtual void Show() {}
+        public virtual void OnShow() {}
         /// <summary>
         /// UI控件被关闭时的回调函数
         /// </summary>
-        public virtual void Close() {}
+        public virtual void OnClose() {}
     #endregion
 
     }

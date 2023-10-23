@@ -148,8 +148,10 @@ namespace TeaProject.Manager
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
             while (!asyncLoad.isDone)
             {
+                level.OnLoad(asyncLoad);
                 yield return null;
             }
+            level.OnLoad(asyncLoad);
         }
     #endregion
 
