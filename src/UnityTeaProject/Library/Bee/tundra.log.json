@@ -305,24 +305,3 @@
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.AdditionalFile.txt","enqueuedNodeIndex":245,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll (+2 others)","enqueueingNodeIndex":247}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.rsp","enqueuedNodeIndex":246,"enqueueingNodeAnnotation":"Csc Library/Bee/artifacts/1900b0aE.dag/Unity.VisualScripting.Shared.Editor.dll (+2 others)","enqueueingNodeIndex":247}
 {"msg":"enqueueNode","enqueuedNodeAnnotation":"CopyFiles Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.pdb","enqueuedNodeIndex":306,"enqueueingNodeAnnotation":"ScriptAssemblies","enqueueingNodeIndex":5}
-{"msg":"newNode","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.AdditionalFile.txt","index":118}
-{"msg":"newNode","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.rsp","index":119}
-{"msg":"runNodeAction","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.AdditionalFile.txt","index":118}
-{"msg":"runNodeAction","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.rsp","index":119}
-{"msg":"newNode","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm.rsp","index":122}
-{"msg":"runNodeAction","annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm.rsp","index":122}
-{"msg":"noderesult","processed_node_count":298,"number_of_nodes_ever_queued":306,"annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.AdditionalFile.txt","index":118,"exitcode":0,"outputfile":"Library\\Bee\\artifacts\\1900b0aE.dag\\TeaProject.AdditionalFile.txt"}
-{"msg":"noderesult","processed_node_count":298,"number_of_nodes_ever_queued":306,"annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.rsp","index":119,"exitcode":0,"outputfile":"Library\\Bee\\artifacts\\1900b0aE.dag\\TeaProject.rsp"}
-{"msg":"noderesult","processed_node_count":298,"number_of_nodes_ever_queued":306,"annotation":"WriteText Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm.rsp","index":122,"exitcode":0,"outputfile":"Library\\Bee\\artifacts\\1900b0aE.dag\\TeaProject.dll.mvfrm.rsp"}
-{"msg":"newNode","annotation":"MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm","index":123}
-{"msg":"runNodeAction","annotation":"MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm","index":123}
-{"msg":"newNode","annotation":"Csc Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll (+2 others)","index":120}
-{"msg":"runNodeAction","annotation":"Csc Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll (+2 others)","index":120}
-{"msg":"noderesult","processed_node_count":301,"number_of_nodes_ever_queued":306,"annotation":"MovedFromExtractorCombine Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll.mvfrm","index":123,"exitcode":0,"outputfile":"Library\\Bee\\artifacts\\1900b0aE.dag\\TeaProject.dll.mvfrm"}
-{"msg":"noderesult","processed_node_count":302,"number_of_nodes_ever_queued":306,"annotation":"Csc Library/Bee/artifacts/1900b0aE.dag/TeaProject.dll (+2 others)","index":120,"exitcode":0,"outputfile":"Library\\Bee\\artifacts\\1900b0aE.dag\\TeaProject.dll"}
-{"msg":"newNode","annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.pdb","index":266}
-{"msg":"runNodeAction","annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.pdb","index":266}
-{"msg":"newNode","annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.dll","index":265}
-{"msg":"runNodeAction","annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.dll","index":265}
-{"msg":"noderesult","processed_node_count":303,"number_of_nodes_ever_queued":306,"annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.pdb","index":266,"exitcode":0,"outputfile":"Library\\ScriptAssemblies\\TeaProject.pdb"}
-{"msg":"noderesult","processed_node_count":304,"number_of_nodes_ever_queued":306,"annotation":"CopyFiles Library/ScriptAssemblies/TeaProject.dll","index":265,"exitcode":0,"outputfile":"Library\\ScriptAssemblies\\TeaProject.dll"}
