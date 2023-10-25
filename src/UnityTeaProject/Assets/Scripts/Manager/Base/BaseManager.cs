@@ -6,6 +6,7 @@
 // Description          : 编写基本管理器类
 //**********************************************************************
 
+using System.Collections;
 using UnityEngine;
 
 namespace TeaProject.Manager
@@ -41,7 +42,7 @@ namespace TeaProject.Manager
         /// <summary>
         /// 初始化管理器。此方法应在派生类实现时应先调用基类方法。
         /// </summary>
-        public virtual void Init(System.Object arg = null)
+        public virtual IEnumerator Init(System.Object arg = null)
         {
             if(m_IsReady)
             {
@@ -50,6 +51,7 @@ namespace TeaProject.Manager
                 throw new System.Exception($"重复初始化管理器！Name:[{name}]");
             }
             m_IsReady = true;
+            return null;
         }
 
         /// <summary>

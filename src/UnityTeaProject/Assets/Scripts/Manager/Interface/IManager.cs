@@ -1,3 +1,4 @@
+using System.Security.AccessControl;
 //**********************************************************************
 // Script Name          : IManager.cs
 // Author Name          : 刘坤
@@ -6,6 +7,8 @@
 // Description          : 编写管理器接口
 //**********************************************************************
 
+using System.Collections;
+using System.Collections.Generic;
 
 namespace TeaProject.Manager
 {
@@ -17,7 +20,7 @@ namespace TeaProject.Manager
         /// <summary>
         /// 初始化管理器
         /// </summary>
-        void Init(System.Object arg);
+        IEnumerator Init(System.Object arg);
         /// <summary>
         /// 获取当前管理器名称
         /// </summary>

@@ -39,17 +39,17 @@ namespace TeaProject.Manager
 
     #region Public or protected method
         /// <summary>
-        /// 初始化关卡管理器
+        /// 初始化关卡管理器，此方法接受一个 ILevel 类型数据
         /// </summary>
         /// <param name="startLevel">游戏开始时的场景</param>
-        public override void Init(System.Object startLevel)
+        public override IEnumerator Init(System.Object startLevel)
         {
-            base.Init();
+            yield return base.Init();
             ILevel level = startLevel as ILevel;
             if(level == null)
             {
                 Debug.LogError("使用了错误的参数来初始化关卡管理器");
-                throw new ArgumentException(); 
+                throw new ArgumentException("参数类型应兼容 TeaProject.Manager.ILevel "); 
             } 
             m_Levels.Push(level);
             IsReady = true;

@@ -6,6 +6,7 @@
 // Description          : 编写UI管理器类
 //**********************************************************************
 
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -18,7 +19,6 @@ namespace TeaProject.Manager
     /// </summary>
     public class UIManager : BaseManager<UIManager>
     {
-
     #region Private fields and properties
         private Dictionary<Type, string> m_UIResources = new Dictionary<Type, string>();
         private Dictionary<Type, Queue<UIMonoBehaviour>> m_CachePool = new Dictionary<Type, Queue<UIMonoBehaviour>>();
@@ -28,9 +28,9 @@ namespace TeaProject.Manager
         /// <summary>
         /// 初始化UI管理器
         /// </summary>
-        public override void Init(object arg = null)
+        public override IEnumerator Init(object arg = null)
         {
-            base.Init();
+            yield return base.Init();
         }
         
         /// <summary>
