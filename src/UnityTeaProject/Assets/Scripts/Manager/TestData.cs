@@ -21,40 +21,14 @@ namespace TeaProject
     }
     public class TestData : IData
     {
-        public bool GetBool(int index)
+        public T Get<T>(int index)
         {
             throw new System.NotImplementedException();
         }
 
-        public double GetDouble(int index)
+        public void Init(string json)
         {
-            throw new System.NotImplementedException();
-        }
 
-        public float GetFloat(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public int GetInt32(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public long GetInt64(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetString(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Init(Stream json)
-        {
-            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<IntString>));
-            List<IntString> list = serializer.ReadObject(json) as List<IntString>;
         }
     }
 }

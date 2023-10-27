@@ -19,6 +19,7 @@ namespace TeaProject.Manager
     /// </summary>
     public class UIManager : BaseManager<UIManager>
     {
+
     #region Private fields and properties
         private Dictionary<Type, string> m_UIResources = new Dictionary<Type, string>();
         private Dictionary<Type, Queue<UIMonoBehaviour>> m_CachePool = new Dictionary<Type, Queue<UIMonoBehaviour>>();

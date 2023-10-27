@@ -28,7 +28,7 @@ namespace TeaProject
         /// 解码器对象
         /// </summary>
         /// <value>如果此值不为空，则 DataManager在读取文件时会使用此解码器来解析文件流；如果此值为空，则默认文件未加密</value>
-        public Func<byte[], byte[]> Decrypt
+        public Func<string, string> Decrypt
         {
             get
             {
@@ -39,10 +39,22 @@ namespace TeaProject
                 m_Decrypt = value;
             }
         }
+
+        public Encoding DataEncoding
+        {
+            get
+            {
+                return m_DataEncoding;
+            }
+            set
+            {
+                m_DataEncoding = value;
+            }
+        }
     #endregion
 
     #region Private fields and properties
-        private Func<byte[], byte[]> m_Decrypt;
+        private Func<string, string> m_Decrypt;
         private Encoding m_DataEncoding;
         private Dictionary<Type, IData> m_DataDictionary;
     #endregion
@@ -74,7 +86,7 @@ namespace TeaProject
                     Debug.LogError("使用了错误的参数来初始化数据管理器");
                     throw new ArgumentException($"类型 {t.FullName} 出现了多次！应只出现一次");
                 }
-                IData da = kvp.Item1.Assembly.CreateInstance(t.FullName) as IData;
+                IData da = t.Assembly.CreateInstance(t.FullName) as IData;
                 yield return ReadJson(kvp.Item2, da);
                 m_DataDictionary.Add(kvp.Item1, da);
             }
@@ -98,13 +110,16 @@ namespace TeaProject
     #region Private method
         IEnumerator ReadJson(string path, IData data)
         {
-            byte[] buffer;
+            string buffer;
             path = Application.streamingAssetsPath + path;
             UnityWebRequest request = new UnityWebRequest(path) { timeout = 2 };
             yield return request.SendWebRequest();
             if(request.isDone && request.result == UnityWebRequest.Result.Success)
             {
-                buffer = request.downloadHandler.data;
+                if(m_DataEncoding == null)
+                    buffer = Encoding.UTF8.GetString(request.downloadHandler.data);
+                else
+                    buffer = m_DataEncoding.GetString(request.downloadHandler.data);
             }
             else
             {
@@ -115,7 +130,7 @@ namespace TeaProject
             {
                 buffer = Decrypt(buffer);
             }
-            data.Init(new MemoryStream(buffer));
+            data.Init(buffer);
         }
     #endregion
 
