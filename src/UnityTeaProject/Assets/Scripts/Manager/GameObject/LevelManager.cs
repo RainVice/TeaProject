@@ -39,17 +39,17 @@ namespace TeaProject.Manager
 
     #region Public or protected method
         /// <summary>
-        /// 初始化关卡管理器
+        /// 初始化关卡管理器，此方法接受一个 ILevel 类型数据
         /// </summary>
         /// <param name="startLevel">游戏开始时的场景</param>
-        public override void Init(System.Object startLevel)
+        public override IEnumerator Init(System.Object startLevel)
         {
-            base.Init();
+            yield return base.Init();
             ILevel level = startLevel as ILevel;
             if(level == null)
             {
                 Debug.LogError("使用了错误的参数来初始化关卡管理器");
-                throw new ArgumentException(); 
+                throw new ArgumentException("参数类型应兼容 TeaProject.Manager.ILevel "); 
             } 
             m_Levels.Push(level);
             IsReady = true;
@@ -140,7 +140,7 @@ namespace TeaProject.Manager
         private IEnumerator LoadLevelAsync(ILevel level)
         {
             int index = level.GetLevelIndex();
-            if(index < 0 || index >= SceneManager.sceneCount)
+            if(index < 0 || index >= SceneManager.sceneCountInBuildSettings)
             {
                 Debug.LogError("要加载的场景索引不存在！");
                 throw new ArgumentException("关卡的索引不存在");
@@ -148,8 +148,10 @@ namespace TeaProject.Manager
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
             while (!asyncLoad.isDone)
             {
+                level.OnLoad(asyncLoad);
                 yield return null;
             }
+            level.OnLoad(asyncLoad);
         }
     #endregion
 

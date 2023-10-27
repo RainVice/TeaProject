@@ -7,6 +7,8 @@
 //**********************************************************************
 
 
+using UnityEngine;
+
 namespace TeaProject.Manager
 {
     /// <summary>
@@ -37,5 +39,9 @@ namespace TeaProject.Manager
         /// 关卡结束活动时的回调函数
         /// </summary>
         void End();
+        /// <summary>
+        /// 关卡加载中的回调函数
+        /// </summary>
+        void OnLoad(AsyncOperation operation);
     }
 }
