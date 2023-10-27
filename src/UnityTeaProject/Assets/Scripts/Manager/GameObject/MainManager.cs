@@ -45,10 +45,11 @@ namespace TeaProject.Manager
             {
 
             });
-            // UIManager.Instance.Init();
-            // yield return null;
-            // LevelManager.Instance.Init();
-            // yield return null;
+            yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
+            {
+                
+            });
+            //yield return LevelManager.Instance.Init();
             // ***********************************
             base.IsReady = true;
             yield return null;

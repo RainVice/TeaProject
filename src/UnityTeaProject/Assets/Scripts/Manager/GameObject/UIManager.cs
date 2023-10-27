@@ -31,13 +31,32 @@ namespace TeaProject.Manager
         public override IEnumerator Init(object arg = null)
         {
             yield return base.Init();
+            List<Tuple<Type, string>> list = arg as List<Tuple<Type, string>>;
+            if(list == null)
+            {
+                Debug.LogError("使用了错误的参数来初始化UI管理器");
+                throw new ArgumentException("参数类型应兼容 List<Tuple<Type, string>> "); 
+            } 
+            foreach (Tuple<Type, string> tuple in list)
+            {
+                Type type = tuple.Item1;
+                string str = tuple.Item2;
+                if(m_UIResources.ContainsKey(type))
+                {
+                    Debug.LogWarning($"UIMananger中注册了多次类型为 {type.Name} 的元素");
+                }
+                else
+                {
+                    m_UIResources.Add(type, str);
+                }
+            }
         }
         
         /// <summary>
         /// 创建一个指定类型的UI，并返回其实例。
         /// </summary>
         /// <typeparam name="T">要创建的UI的类型</typeparam>
-        public T Show<T>() where T : UIMonoBehaviour
+        public T Show<T>(Transform parent = null) where T : UIMonoBehaviour
         {
             Type type = typeof(T);
             string path;
@@ -58,7 +77,7 @@ namespace TeaProject.Manager
                     Debug.LogError($"指定的类型[{type.Name}]在Resources下找不到预制体文件!请检查注册时的路径!");
                     return null;
                 }
-                GameObject obj = (GameObject)Instantiate(prefab);
+                GameObject obj = (GameObject)Instantiate(prefab, parent);
                 res = obj.GetComponent<T>();
                 if(res is null)
                 {
