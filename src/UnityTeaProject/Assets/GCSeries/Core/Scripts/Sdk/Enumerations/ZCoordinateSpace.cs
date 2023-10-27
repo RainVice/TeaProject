@@ -1,0 +1,16 @@
+﻿////////////////////////////////////////////////////////////////////////////////
+//
+//  Copyright (C) 2007-2020 , Inc.  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+namespace GCSeries.Core.Sdk
+{
+    public enum ZCoordinateSpace
+    {
+        Tracker = 0,
+        Display = 1,
+        Viewport = 2,
+        Camera = 3,
+    }
+}

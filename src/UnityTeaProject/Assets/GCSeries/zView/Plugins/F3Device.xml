@@ -1,0 +1,2970 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>F3Device</name>
+    </assembly>
+    <members>
+        <member name="T:F3Device.API">
+            <summary>
+            Windows API
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetLastError">
+            <summary>
+            获取错误代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:F3Device.API.WM_CLOSE">
+            <summary>
+            关闭应用程序窗口
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_DESTROY">
+            <summary>
+            关闭应用程序
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_QUIT">
+            <summary>
+            关闭消息循环
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_MOUSEMOVE">
+            <summary>
+            移动鼠标
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_LBUTTONDOWN">
+            <summary>
+            按下鼠标左键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_LBUTTONUP">
+            <summary>
+            释放鼠标左键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_LBUTTONDBLCLK">
+            <summary>
+            双击鼠标左键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_RBUTTONDOWN">
+            <summary>
+            按下鼠标右键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_RBUTTONUP">
+            <summary>
+            释放鼠标右键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_RBUTTONDBLCLK">
+            <summary>
+            双击鼠标右键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_MBUTTONDOWN">
+            <summary>
+            按下鼠标中键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_MBUTTONUP">
+            <summary>
+            释放鼠标中键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_MBUTTONDBLCLK">
+            <summary>
+            双击鼠标中键
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WM_MOUSEWHEEL">
+            <summary>
+            鼠标滚轮
+            </summary>
+        </member>
+        <member name="T:F3Device.API.Point">
+            <summary>
+            点数据
+            </summary>
+        </member>
+        <member name="F:F3Device.API.Point.x">
+            <summary>
+            x
+            </summary>
+        </member>
+        <member name="F:F3Device.API.Point.y">
+            <summary>
+            y
+            </summary>
+        </member>
+        <member name="M:F3Device.API.Point.#ctor">
+            <summary>
+            默认构造
+            </summary>
+        </member>
+        <member name="M:F3Device.API.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+        </member>
+        <member name="T:F3Device.API.SPoint">
+            <summary>
+            点数据
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SPoint.x">
+            <summary>
+            x
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SPoint.y">
+            <summary>
+            y
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SPoint.#ctor(System.Int32,System.Int32)">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:F3Device.API.SRect">
+            <summary>
+            矩形数据
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SRect.left">
+            <summary>
+            左
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SRect.top">
+            <summary>
+            上
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SRect.right">
+            <summary>
+            右
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SRect.bottom">
+            <summary>
+            下
+            </summary>
+        </member>
+        <member name="P:F3Device.API.SRect.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:F3Device.API.SRect.Height">
+            <summary>
+            高
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SRect.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SRect.Contains(System.Int32,System.Int32)">
+            <summary>
+            是否包含位置点
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetCursorPos(F3Device.API.SPoint@)">
+            <summary>
+            该函数检取光标的位置，以屏幕坐标表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.SetCursorPos(System.Int32,System.Int32)">
+            <summary>
+            该函数把光标移到屏幕的指定位置。如果新位置不在由 ClipCursor函数设置的屏幕矩形区域之内，则系统自动调整坐标，使得光标在矩形之内。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.GetClientRect(System.IntPtr,F3Device.API.SRect@)">
+            <summary>
+            该函数获取窗口客户区的大小。注意一下：窗口的客户区为窗口中除标题栏、菜单栏之外的地方。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.ClientToScreen(System.IntPtr,F3Device.API.SPoint@)">
+            <summary>
+            APP中客户区的坐标点信息转换为整个屏幕的坐标，其中：所有的坐标（无论是屏幕坐标还是客户区坐标）其坐标原点都是左上角为（0，0）
+            </summary>
+            <param name="hWnd"></param>
+            <param name="lpPoint"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.GetWindowRect(System.IntPtr,F3Device.API.SRect@)">
+            <summary>
+            该函数返回指定窗口的边框矩形的大小，
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.API.WNDENUMPROC">
+            <summary>
+            枚举窗口的回调委托
+            </summary>
+        </member>
+        <member name="T:F3Device.API.CHILDWNDENUMPROC">
+            <summary>
+            枚举子窗口的回调委托
+            </summary>
+        </member>
+        <member name="M:F3Device.API.EnumWindows(F3Device.API.WNDENUMPROC,System.UInt32)">
+            <summary>
+            函数功能 该函数枚举所有屏幕上的顶层窗口，并将窗口句柄传送给应用程序定义的回调函数。回调函数返回FALSE将停止枚举，否则EnumWindows函数继续到所有顶层窗口枚举完为止。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.EnumChildWindows(System.IntPtr,F3Device.API.CHILDWNDENUMPROC,System.Int32)">
+            <summary>
+            通过将句柄传递给每个子窗口并依次传递给应用程序定义的回调函数，可以枚举属于指定父窗口的子窗口。EnumChildWindows继续，直到枚举最后一个子窗口或回调函数返回FALSE为止。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.GetWindowText(System.Int32,System.Text.StringBuilder,System.Int32)">
+            <summary>
+            该函数将指定窗口的标题条文本（如果存在）拷贝到一个缓存区内。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetWindowTextLength(System.Int32)">
+            <summary>
+            该函数返回指定窗口的标题文本（如果存在）的字符长度。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetParent(System.IntPtr)">
+            <summary>
+            函数获得一个指定子窗口的父窗口句柄
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetLastError(System.UInt32)">
+            <summary>
+            此函数为调用线程设置最后错误代码。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetProcessWnd">
+            <summary>
+            获取当前进程窗口句柄
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetProcessWndList">
+            <summary>
+            获取当前进程窗口句柄列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.PostMessage(System.IntPtr,System.UInt32,System.IntPtr,System.IntPtr)">
+            <summary>
+            发送窗口消息
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SendMessage(System.IntPtr,System.UInt32,System.IntPtr,System.IntPtr)">
+            <summary>
+            发送窗口消息
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SendNotifyMessage(System.IntPtr,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            函数将指定的消息发送到一个窗口。
+            如果该窗口是由调用线程创建的；此函数为该窗口调用窗口程序，并等待窗口程序处理完消息后再返回。
+            如果该窗口是由不同的线程创建的，此函数将消息传给该窗口程序，并立即返回，不等待窗口程序处理完消息。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.CreateWindowEx(System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.IntPtr,System.IntPtr,System.IntPtr,System.Object)">
+            <summary>
+            创建窗口
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            SetForegroundWindow函数将创建指定窗口的线程设置到前台，并且激活该窗口。键盘输入转向该窗口，并为用户改各种可视的记号。
+            </summary>
+            <param name="hWnd">将要设置前台的窗口句柄</param>
+            <returns>如果窗口设入了前台，返回值为非零；如果窗口未被设入前台，返回值为零。</returns>
+        </member>
+        <member name="M:F3Device.API.GetForegroundWindow">
+            <summary>
+            获取一个前台窗口的句柄（用户当前工作的窗口）。
+            </summary>
+            <returns>返回值是一个前台窗口的句柄。在某些情况下，如一个窗口失去激活时，前台窗口可以是NULL。</returns>
+        </member>
+        <member name="T:F3Device.API.CallBack">
+            <summary>
+            窗口回调的委托
+            </summary>
+        </member>
+        <member name="F:F3Device.API.GWL_WNDPROC">
+            <summary>
+            为窗口过程设置一个新的地址
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetWindowLong(System.IntPtr,System.Int32,F3Device.API.CallBack)">
+            <summary>
+            改变指定窗口的属性
+            </summary>
+            <param name="hWnd">窗口句柄</param>
+            <param name="nIndex">指定将设定的大于等于0的偏移值</param>
+            <param name="wndProc">指定的替换值</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.SetWindowLongPtr(System.IntPtr,System.Int32,F3Device.API.CallBack)">
+            <summary>
+            改变指定窗口的属性(兼容32位和64位取代SetWindowLong函数)
+            </summary>
+            <param name="hWnd">窗口句柄</param>
+            <param name="nIndex">指定将设定的大于等于0的偏移值</param>
+            <param name="wndProc">指定的替换值</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.SetWindowLongPtr(System.IntPtr,System.Int32,System.IntPtr)">
+            <summary>
+            改变指定窗口的属性(兼容32位和64位取代SetWindowLong函数)
+            </summary>
+            <param name="hWnd">窗口句柄</param>
+            <param name="nIndex">指定将设定的大于等于0的偏移值</param>
+            <param name="wndProc">指定的替换值</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.SetWindowLong(System.IntPtr,System.Int32,System.IntPtr)">
+            <summary>
+            改变指定窗口的属性
+            </summary>
+            <param name="hWnd">窗口句柄</param>
+            <param name="nIndex">指定将设定的大于等于0的偏移值</param>
+            <param name="wndProc">指定的替换值</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.API.CallWindowProc(System.IntPtr,System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            将消息信息传送给指定的窗口过程
+            </summary>
+        </member>
+        <member name="F:F3Device.API.HWND_TOP">
+            <summary>
+            在前面
+            </summary>
+        </member>
+        <member name="F:F3Device.API.HWND_BOTTOM">
+            <summary>
+            在后面
+            </summary>
+        </member>
+        <member name="F:F3Device.API.HWND_TOPMOST">
+            <summary>
+            在前面, 位于任何顶部窗口的前面
+            </summary>
+        </member>
+        <member name="F:F3Device.API.HWND_NOTOPMOST">
+            <summary>
+            在前面, 位于其他顶部窗口的后面
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOSIZE">
+            <summary>
+            维持当前尺寸（忽略cx和Cy参数）
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOMOVE">
+            <summary>
+            维持当前位置（忽略X和Y参数）。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOZORDER">
+            <summary>
+            维持当前Z序（忽略hWndlnsertAfter参数）。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOREDRAW">
+            <summary>
+            不重画改变的内容。如果设置了这个标志，则不发生任何重画动作。
+            适用于客户区和非客户区（包括标题栏和滚动条）和任何由于窗回移动而露出的父窗口的所有部分。
+            如果设置了这个标志，应用程序必须明确地使窗口无效并区重画窗口的任何部分和父窗口需要重画的部分。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOACTIVATE">
+            <summary>
+            不激活窗口。如果未设置标志，则窗口被激活，并被设置到其他最高级窗口或非最高级组的顶部（根据参数hWndlnsertAfter设置）。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_FRAMECHANGED">
+            <summary>
+            给窗口发送WM_NCCALCSIZE消息，即使窗口尺寸没有改变也会发送该消息。
+            如果未指定这个标志，只有在改变了窗口尺寸时才发送WM_NCCALCSIZE。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_SHOWWINDOW">
+            <summary>
+            显示窗口。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_HIDEWINDOW">
+            <summary>
+            隐藏窗口。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOCOPYBITS">
+            <summary>
+            清除客户区的所有内容。如果未设置该标志，客户区的有效内容被保存并且在窗口尺寸更新和重定位后拷贝回客户区。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOOWNERZORDER">
+            <summary>
+            不改变z序中的所有者窗口的位置。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOSENDCHANGING">
+            <summary>
+            防止窗口接收WM_WINDOWPOSCHANGING消息。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_DRAWFRAME">
+            <summary>
+            在窗口周围画一个边框
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_NOREPOSITION">
+            <summary>
+            与SWP_NOOWNERZORDER标志相同。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_DEFERERASE">
+            <summary>
+            防止产生WM_SYNCPAINT消息。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SWP_ASYNCWINDOWPOS">
+            <summary>
+            如果调用进程不拥有窗口，系统会向拥有窗口的线程发出需求。这就防止调用线程在其他线程处理需求的时候发生死锁。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetWindowPos(System.IntPtr,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt32)">
+            <summary>
+            改变一个子窗口，弹出式窗口或顶层窗口的尺寸，位置和Z序
+            </summary>
+            <param name="hWnd">的窗口句柄</param>
+            <param name="hWndInsertAfter">z-顺序 如果uFlags参数中设置了SWP_NOZORDER标记则本参数将被忽略 
+             HWND_TOP/HWND_BOTTOM/HWND_TOPMOST/HWND_NOTOPMOST </param>
+            <param name="X">以客户坐标指定窗口新位置的左边界</param>
+            <param name="Y">以客户坐标指定窗口新位置的顶边界</param>
+            <param name="cx">以像素指定窗口的新的宽度</param>
+            <param name="cy">以像素指定窗口的新的高度</param>
+            <param name="uFlags">窗口尺寸和定位的标志 该参数可以是值的组合
+            SWP_NOSIZE|SWP_NOMOVE|SWP_NOZORDER|SWP_NOREDRAW|SWP_NOACTIVATE|SWP_FRAMECHANGED|SWP_SHOWWINDOW|
+            SWP_HIDEWINDOW|SWP_NOCOPYBITS|SWP_NOOWNERZORDER|SWP_NOSENDCHANGING|SWP_DRAWFRAME|SWP_NOREPOSITION|
+            SWP_DEFERERASE|SWP_ASYNCWINDOWPOS</param>
+            <returns>如果函数成功，返回值为非零；如果函数失败，返回值为零。若想获得更多错误消息，请调用GetLastError函数。</returns>
+        </member>
+        <member name="T:F3Device.API.HookProc">
+            <summary>
+            钩子委托
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WH_MSGFILTER">
+             <summary>
+             WH_MSGFILTER 和 WH_SYSMSGFILTER Hooks使我们可以监视菜单，滚动 
+            条，消息框，对话框消息并且发现用户使用ALT+TAB or ALT+ESC 组合键切换窗口。 
+            WH_MSGFILTER Hook只能监视传递到菜单，滚动条，消息框的消息，以及传递到通 
+            过安装了Hook子过程的应用程序建立的对话框的消息。WH_SYSMSGFILTER Hook 
+            监视所有应用程序消息。 
+             
+            WH_MSGFILTER 和 WH_SYSMSGFILTER Hooks使我们可以在模式循环期间 
+            过滤消息，这等价于在主消息循环中过滤消息。 
+                
+            通过调用CallMsgFilter function可以直接的调用WH_MSGFILTER Hook。通过使用这 
+            个函数，应用程序能够在模式循环期间使用相同的代码去过滤消息，如同在主消息循 
+            环里一样
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_JOURNALRECORD">
+             <summary>
+             WH_JOURNALRECORD Hook用来监视和记录输入事件。典型的，可以使用这 
+            个Hook记录连续的鼠标和键盘事件，然后通过使用WH_JOURNALPLAYBACK Hook 
+            来回放。WH_JOURNALRECORD Hook是全局Hook，它不能象线程特定Hook一样 
+            使用。WH_JOURNALRECORD是system-wide local hooks，它们不会被注射到任何行 
+            程地址空间
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_JOURNALPLAYBACK">
+             <summary>
+             WH_JOURNALPLAYBACK Hook使应用程序可以插入消息到系统消息队列。可 
+            以使用这个Hook回放通过使用WH_JOURNALRECORD Hook记录下来的连续的鼠 
+            标和键盘事件。只要WH_JOURNALPLAYBACK Hook已经安装，正常的鼠标和键盘 
+            事件就是无效的。WH_JOURNALPLAYBACK Hook是全局Hook，它不能象线程特定 
+            Hook一样使用。WH_JOURNALPLAYBACK Hook返回超时值，这个值告诉系统在处 
+            理来自回放Hook当前消息之前需要等待多长时间（毫秒）。这就使Hook可以控制实 
+            时事件的回放。WH_JOURNALPLAYBACK是system-wide local hooks，它们不会被 
+            注射到任何行程地址空间
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_KEYBOARD">
+             <summary>
+             在应用程序中，WH_KEYBOARD Hook用来监视WM_KEYDOWN and  
+            WM_KEYUP消息，这些消息通过GetMessage or PeekMessage function返回。可以使 
+            用这个Hook来监视输入到消息队列中的键盘消息
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_GETMESSAGE">
+             <summary>
+             应用程序使用WH_GETMESSAGE Hook来监视从GetMessage or PeekMessage函 
+            数返回的消息。你可以使用WH_GETMESSAGE Hook去监视鼠标和键盘输入，以及 
+            其它发送到消息队列中的消息
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_CALLWNDPROC">
+            <summary>
+            监视发送到窗口过程的消息，系统在消息发送到接收窗口过程之前调用
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WH_CBT">
+             <summary>
+             在以下事件之前，系统都会调用WH_CBT Hook子过程，这些事件包括： 
+            1. 激活，建立，销毁，最小化，最大化，移动，改变尺寸等窗口事件； 
+            2. 完成系统指令； 
+            3. 来自系统消息队列中的移动鼠标，键盘事件； 
+            4. 设置输入焦点事件； 
+            5. 同步系统消息队列事件。
+            Hook子过程的返回值确定系统是否允许或者防止这些操作中的一个
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_SYSMSGFILTER">
+             <summary>
+             WH_MSGFILTER 和 WH_SYSMSGFILTER Hooks使我们可以监视菜单，滚动 
+            条，消息框，对话框消息并且发现用户使用ALT+TAB or ALT+ESC 组合键切换窗口。 
+            WH_MSGFILTER Hook只能监视传递到菜单，滚动条，消息框的消息，以及传递到通 
+            过安装了Hook子过程的应用程序建立的对话框的消息。WH_SYSMSGFILTER Hook 
+            监视所有应用程序消息。 
+             
+            WH_MSGFILTER 和 WH_SYSMSGFILTER Hooks使我们可以在模式循环期间 
+            过滤消息，这等价于在主消息循环中过滤消息。 
+                
+            通过调用CallMsgFilter function可以直接的调用WH_MSGFILTER Hook。通过使用这 
+            个函数，应用程序能够在模式循环期间使用相同的代码去过滤消息，如同在主消息循 
+            环里一样
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_MOUSE">
+             <summary>
+             WH_MOUSE Hook监视从GetMessage 或者 PeekMessage 函数返回的鼠标消息。 
+            使用这个Hook监视输入到消息队列中的鼠标消息
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_HARDWARE">
+            <summary>
+            当调用GetMessage 或 PeekMessage 来从消息队列种查询非鼠标、键盘消息时
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WH_DEBUG">
+             <summary>
+             在系统调用系统中与其它Hook关联的Hook子过程之前，系统会调用 
+            WH_DEBUG Hook子过程。你可以使用这个Hook来决定是否允许系统调用与其它 
+            Hook关联的Hook子过程
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_SHELL">
+             <summary>
+             外壳应用程序可以使用WH_SHELL Hook去接收重要的通知。当外壳应用程序是 
+            激活的并且当顶层窗口建立或者销毁时，系统调用WH_SHELL Hook子过程。 
+            WH_SHELL 共有５钟情况： 
+            1. 只要有个top-level、unowned 窗口被产生、起作用、或是被摧毁； 
+            2. 当Taskbar需要重画某个按钮； 
+            3. 当系统需要显示关于Taskbar的一个程序的最小化形式； 
+            4. 当目前的键盘布局状态改变； 
+            5. 当使用者按Ctrl+Esc去执行Task Manager（或相同级别的程序）。 
+            
+            按照惯例，外壳应用程序都不接收WH_SHELL消息。所以，在应用程序能够接 
+            收WH_SHELL消息之前，应用程序必须调用SystemParametersInfo function注册它自 
+            己
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_FOREGROUNDIDLE">
+             <summary>
+             当应用程序的前台线程处于空闲状态时，可以使用WH_FOREGROUNDIDLE  
+            Hook执行低优先级的任务。当应用程序的前台线程大概要变成空闲状态时，系统就 
+            会调用WH_FOREGROUNDIDLE Hook子过程
+             </summary>
+        </member>
+        <member name="F:F3Device.API.WH_CALLWNDPROCRET">
+            <summary>
+            监视发送到窗口过程的消息，系统在消息发送到接收窗口过程之后调用
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WH_KEYBOARD_LL">
+            <summary>
+            监视输入到线程消息队列中的键盘消息
+            </summary>
+        </member>
+        <member name="F:F3Device.API.WH_MOUSE_LL">
+            <summary>
+            监视输入到线程消息队列中的鼠标消息
+            </summary>
+        </member>
+        <member name="T:F3Device.API.MOUSEHOOKSTRUCT">
+            <summary>
+            声明鼠标钩子的封送结构类型
+            </summary>
+        </member>
+        <member name="F:F3Device.API.MOUSEHOOKSTRUCT.pt">
+            <summary>
+            POINT结构对象，保存鼠标在屏幕上的x,y坐标
+            </summary>
+        </member>
+        <member name="F:F3Device.API.MOUSEHOOKSTRUCT.hWnd">
+            <summary>
+            接收到鼠标消息的窗口的句柄
+            </summary>
+        </member>
+        <member name="F:F3Device.API.MOUSEHOOKSTRUCT.wHitTestCode">
+            <summary>
+            hit-test值，详细描述参见WM_NCHITTEST消息
+            </summary>
+        </member>
+        <member name="F:F3Device.API.MOUSEHOOKSTRUCT.dwExtraInfo">
+            <summary>
+            指定与本消息联系的额外消息
+            </summary>
+        </member>
+        <member name="T:F3Device.API.KBDLLHOOKSTRUCT">
+            <summary>
+            键盘Hook结构函数
+            即钩子发挥作用时能够得到的一些参数
+            </summary>
+        </member>
+        <member name="F:F3Device.API.KBDLLHOOKSTRUCT.vkCode">
+            <summary>
+            虚拟按键码(1--254)
+            </summary>
+        </member>
+        <member name="F:F3Device.API.KBDLLHOOKSTRUCT.scanCode">
+            <summary>
+            硬件按键扫描码
+            </summary>
+        </member>
+        <member name="F:F3Device.API.KBDLLHOOKSTRUCT.flags">
+            <summary>
+            键按下：128 抬起：0
+            </summary>
+        </member>
+        <member name="F:F3Device.API.KBDLLHOOKSTRUCT.time">
+            <summary>
+            消息时间戳间
+            </summary>
+        </member>
+        <member name="F:F3Device.API.KBDLLHOOKSTRUCT.dwExtraInfo">
+            <summary>
+            额外信息
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetWindowsHookEx(System.Int32,F3Device.API.HookProc,System.IntPtr,System.UInt32)">
+            <summary>
+            把一个应用程序定义的钩子子程安装到钩子链表中
+            </summary>
+        </member>
+        <member name="M:F3Device.API.CallNextHookEx(System.IntPtr,System.Int32,System.IntPtr,System.IntPtr)">
+            <summary>
+            将钩子信息传递到当前钩子链中的下一个子程
+            </summary>
+        </member>
+        <member name="M:F3Device.API.UnhookWindowsHookEx(System.Int32)">
+            <summary>
+            卸载钩子
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetWindowThreadProcessId(System.IntPtr,System.UInt32@)">
+            <summary>
+            找出某个窗口的创建者（线程或进程）
+            lpdwProcessId 是进程号存放处。（进程只有一个线程的话，那么线程标志符与进程标志符就是指同一个标志符）
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetModuleHandle(System.String)">
+            <summary>
+            获取一个应用程序或动态链接库的模块句柄
+            </summary>
+        </member>
+        <member name="M:F3Device.API.LoadLibrary(System.String)">
+            <summary>
+            将指定的模块加载到调用进程的地址空间中
+            </summary>
+        </member>
+        <member name="T:F3Device.API.FEEDBACK_TYPE">
+            <summary>
+            指定与事件关联的视觉反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_TOUCH_CONTACTVISUALIZATION">
+            <summary>
+            触摸接触事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_PEN_BARRELVISUALIZATION">
+            <summary>
+            笔桶按钮事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_PEN_TAP">
+            <summary>
+            笔点击事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_PEN_DOUBLETAP">
+            <summary>
+            笔双击事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_PEN_PRESSANDHOLD">
+            <summary>
+            笔按住事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_PEN_RIGHTTAP">
+            <summary>
+            笔右击事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_TOUCH_TAP">
+            <summary>
+            触摸事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_TOUCH_DOUBLETAP">
+            <summary>
+            轻触两次事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_TOUCH_PRESSANDHOLD">
+            <summary>
+            触摸并按住事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_TOUCH_RIGHTTAP">
+            <summary>
+            触摸右击事件的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_GESTURE_PRESSANDTAP">
+            <summary>
+            轻按手势的反馈。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.FEEDBACK_TYPE.FEEDBACK_MAX">
+            <summary>
+            不使用。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetWindowFeedbackSetting(System.IntPtr,F3Device.API.FEEDBACK_TYPE,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            设置窗口的反馈配置
+            </summary>
+        </member>
+        <member name="M:F3Device.API.SetTouchFeedback(System.IntPtr,System.Boolean)">
+            <summary>
+            仅限win8.1上
+            </summary>
+            <param name="hWnd"></param>
+            <param name="enable"></param>
+        </member>
+        <member name="F:F3Device.API.TOUCHEVENTF_MOVE">
+            <summary>
+            发生了移动。不能与TOUCHEVENTF_DOWN结合使用。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.TOUCHEVENTF_DOWN">
+            <summary>
+            通过新的联系人建立了相应的接触点。不能与TOUCHEVENTF_MOVE或TOUCHEVENTF_UP结合使用。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.TOUCHEVENTF_UP">
+            <summary>
+            触摸点已删除。
+            </summary>
+        </member>
+        <member name="T:F3Device.API.STouchInput">
+            <summary>
+            封装用于触摸输入的数据
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.x">
+            <summary>
+            触摸输入的x坐标（水平点）。该成员以物理屏幕坐标的百分之一像素表示。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.y">
+            <summary>
+            触摸输入的y坐标（垂直点）。该成员以物理屏幕坐标的百分之一像素表示。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.hSource">
+            <summary>
+            源输入设备的设备句柄。触摸输入提供程序会在运行时为每个设备提供唯一的提供程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.dwID">
+            <summary>
+            区分特定触摸输入的触摸点标识符。从接触点下降到恢复接触点，此值在触摸接触序列中保持一致。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.dwFlags">
+            <summary>
+            一组位标记，用于指定触摸点按下，释放和运动的各个方面。该成员中的位可以是“备注”部分中值的任何合理组合。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.dwMask">
+            <summary>
+            一组位标志，用于指定结构中的哪些可选字段包含有效值。
+            可选字段中有效信息的可用性是特定于设备的。
+            仅当在dwMask中设置了相应的位时，应用程序才应使用可选的字段值。
+            该字段可能包含“备注”部分中提到的dwMask标志的组合。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.dwTime">
+            <summary>
+            事件的时间戳，以毫秒为单位。
+            消费应用程序应注意，系统不对此字段执行任何验证；
+            当未设置TOUCHINPUTMASKF_TIMEFROMSYSTEM标志时，此字段中值的准确性和顺序完全取决于触摸输入提供程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.dwExtraInfo">
+            <summary>
+            与触摸事件关联的附加值。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.cxContact">
+            <summary>
+            在物理屏幕坐标中，触摸接触区域的宽度以百分之一像素为单位。仅当dwMask成员设置了TOUCHEVENTFMASK_CONTACTAREA标志时，此值才有效。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.STouchInput.cyContact">
+            <summary>
+            在物理屏幕坐标中，触摸接触区域的高度以百分之一像素为单位。仅当dwMask成员设置了TOUCHEVENTFMASK_CONTACTAREA标志时，此值才有效。
+            </summary>
+        </member>
+        <member name="F:F3Device.API.touchInputSize">
+            <summary>
+            触摸输入数据结构大小
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetTouchInputInfo(System.IntPtr,System.Int32,F3Device.API.STouchInput[],System.Int32)">
+            <summary>
+            检索有关与特定触摸输入手柄关联的触摸输入的详细信息。
+            </summary>
+        </member>
+        <member name="M:F3Device.API.LoWord(System.Int32)">
+            <summary>
+            取出低顺序单字（低16位）
+            </summary>
+        </member>
+        <member name="M:F3Device.API.GetMessageExtraInfo">
+            <summary>
+            检索当前线程的额外消息信息。额外的消息信息是与当前线程的消息队列关联的应用程序或驱动程序定义的值。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:F3Device.API.MI_WP_SIGNATURE">
+            <summary>
+            扩展消息
+            </summary>
+        </member>
+        <member name="F:F3Device.API.SIGNATURE_MASK">
+            <summary>
+            扩展消息
+            </summary>
+        </member>
+        <member name="M:F3Device.API.IsTouchEvent">
+            <summary>
+            是否是触摸消息
+            </summary>
+        </member>
+        <member name="T:F3Device.Common.AppLog">
+            <summary>
+            自己直接处理日志是给进程方式使用的 unity中将调用Log库
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.AppLog.HandleEvent">
+            <summary>
+            日志的处理事件 如果有则优先
+            </summary>
+        </member>
+        <member name="T:F3Device.Common.Paths">
+            <summary>
+            路径信息
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ModuleName">
+            <summary>
+            模块名(程序名)
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ModulePath">
+            <summary>
+            模块的完整路径。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.EnvCurrentDirectory">
+            <summary>
+            当前工作目录的完全限定路径
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.DirCurrentDirectory">
+            <summary>
+            应用程序的当前工作目录
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.CurDomainBaseDirectory">
+            <summary>
+            获取程序的基目录
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ApplicationBase">
+            <summary>
+            应用程序的目录的名称
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.StartupPath">
+            <summary>
+            获取启动了应用程序的可执行文件的路径，不包括可执行文件的名称
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ExecutablePath">
+            <summary>
+            获取启动了应用程序的可执行文件的路径及文件名
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ExeName">
+            <summary>
+            应用程序名有扩展名
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.ExeNameNoExt">
+            <summary>
+            应用程序名无扩展名
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.Paths.DesktopPath">
+            <summary>
+            桌面路径
+            </summary>
+        </member>
+        <member name="M:F3Device.Common.Paths.ToString">
+            <summary>
+            转换字符串查看
+            </summary>
+        </member>
+        <member name="T:F3Device.Common.StringHelper">
+            <summary>
+            字符串帮助
+            </summary>
+        </member>
+        <member name="M:F3Device.Common.StringHelper.VersionCompare(System.String,System.String)">
+            <summary>
+            小于0 ver1 小于 ver2 
+            </summary>
+            <param name="ver1"></param>
+            <param name="ver2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Common.SerialPortHelper">
+            <summary>
+            ManagementObjectSearcher 对象获取串口列表
+            </summary>
+        </member>
+        <member name="T:F3Device.Common.SerialPortHelper.GuidClass">
+            <summary>
+            供应商可用的系统定义的设备设置类
+            以下类和GUID由操作系统定义。除非另有说明，否则这些类和GUID可用于在Windows 2000和更高版本的Windows上安装设备（或驱动程序）：
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Battery">
+            <summary>
+            电池设备
+            此类包括电池设备和UPS设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Biometric">
+            <summary>
+            生物识别设备
+            （Windows Server 2003及更高版本的Windows）此类包括所有基于生物识别的个人识别设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Bluetooth">
+            <summary>
+            蓝牙设备
+            （Windows XP SP1及更高版本的Windows）此类包括所有蓝牙设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Camera">
+             <summary>
+             Camera Device
+            （Windows 10版本1709及更高版本的Windows）此课程包括通用相机驱动程序。
+             </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.CDROM">
+            <summary>
+            CD-ROM Drives
+            此类包括CD-ROM驱动器，包括SCSI CD-ROM驱动器。默认情况下，系统的CD-ROM类安装程序还会将系统提供的CD音频驱动程序和CD-ROM更换器驱动程序安装为即插即用过滤器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.DiskDrive">
+            <summary>
+            Disk Drives
+            此类包括硬盘驱动器。另请参见HDC和SCSIAdapter类。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Display">
+            <summary>
+            Display Adapters
+            此类包括视频适配器。此类驱动程序包括显示驱动程序和视频微型端口驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Extension">
+            <summary>
+            Extension INF
+            （Windows 10及更高版本的Windows）此类包括需要自定义的所有设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.FDC">
+            <summary>
+            Floppy Disk Controllers
+            此类包括软盘驱动器控制器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.FloppyDisk">
+            <summary>
+            Floppy Disk Drives
+            此类包括软盘驱动器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.HDC">
+            <summary>
+            Hard Disk Controllers
+            此类包括硬盘控制器，包括ATA / ATAPI控制器，但不包括SCSI和RAID磁盘控制器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.HIDClass">
+            <summary>
+            Human Interface Devices (HID)
+            此类包括由系统提供的HID类驱动程序操作的交互式输入设备。这包括符合USB HID标准的USB设备和使用HID微型驱动程序的非USB设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Dot4">
+            <summary>
+            IEEE 1284.4 Devices
+            此类包括控制多功能IEEE 1284.4外围设备操作的设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Dot4Print">
+            <summary>
+            IEEE 1284.4 Print Functions
+            该类包括Dot4打印功能。Dot4打印功能是Dot4设备上的一项功能，它有一个子设备，它是打印机设备设置类的成员。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass._61883">
+            <summary>
+            IEEE 1394 Devices That Support the 61883 Protocol
+            此类包括支持IEC-61883协议设备类的IEEE 1394设备。
+            61883组件包括61883.sys协议驱动程序，该驱动程序通过1394总线传输各种音频和视频数据流。目前包括标准/高/低质量DV，MPEG2，DSS和音频。这些数据流由IEC-61883规范定义。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.AVC">
+            <summary>
+            IEEE 1394 Devices That Support the AVC Protocol
+            此类包括支持AVC协议设备类的IEEE 1394设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SBP2">
+            <summary>
+            IEEE 1394 Devices That Support the SBP2 Protocol
+            此类包括支持SBP2协议设备类的IEEE 1394设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass._1394">
+            <summary>
+            IEEE 1394 Host Bus Controller
+            此类包括连接在PCI总线上的1394个主机控制器，但不包括1394个外围设备。此类的驱动程序由系统提供。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Image">
+            <summary>
+            Imaging Device
+            此类包括静止图像捕获设备，数码相机和扫描仪。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Infrared">
+            <summary>
+            IrDA Devices
+            包括红外设备。此类驱动程序包括Serial-IR和Fast-IR NDIS微型端口，但另请参阅其他NDIS网络适配器微型端口的网络适配器类。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Keyboard">
+            <summary>
+            Keyboard
+            此类包括所有键盘。也就是说，它还必须在（辅助）INF中为枚举的子HID键盘设备指定。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.MediumChanger">
+            <summary>
+            Media Changers
+            此类包括SCSI媒体转换器设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.MTD">
+            <summary>
+            Memory Technology Driver
+            此类包括内存设备，如闪存卡。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Modem">
+            <summary>
+            Modem
+            此类包括调制解调器设备。此类设备的INF文件指定设备的功能和配置，并将此信息存储在注册表中。
+            此类设备的INF文件也可用于为无控制器调制解调器或软件调制解调器安装设备驱动程序。
+            这些设备将调制解调器设备和设备驱动程序之间的功能分开。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Monitor">
+            <summary>
+            Monitor
+            此类包括显示监视器。此类设备的INF不安装任何设备驱动程序，而是指定要存储在注册表中的特定监视器的功能，以供视频适配器的驱动程序使用。（监视器被枚举为显示适配器的子设备。）
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Mouse">
+            <summary>
+            Mouse
+            此类包括所有鼠标设备和其他类型的指点设备，如轨迹球。也就是说，还必须在（辅助）INF中为枚举的子HID鼠标设备指定此类。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Multifunction">
+            <summary>
+            Multifunction Devices
+            此类包括组合卡，例如PCMCIA调制解调器和网卡适配器。这种即插即用多功能设备的驱动程序安装在此类下，并将调制解调器和网卡分别枚举为其子设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Media">
+            <summary>
+            Multimedia
+            此课程包括音频和DVD多媒体设备，操纵杆端口和全动态视频捕捉设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.MultiportSerial">
+            <summary>
+            Multiport Serial Adapters
+            此类包括智能多端口串行卡，但不包括连接到其端口的外围设备。它不包括非智能（16550型）多端口串行控制器或单端口串行控制器（请参阅Ports类）。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Net">
+            <summary>
+            Network Adapter
+            此类包括NDIS微型端口驱动程序，不包括Fast-IR微型端口驱动程序，NDIS中间驱动程序（虚拟适配器）和CoNDIS MCM微型端口驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.NetClient">
+            <summary>
+            Network Client
+            此类包括网络和/或打印提供程序。
+            注意 在Windows 8.1，Windows Server 2012 R2和更高版本中不推荐使用NetClient组件。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.NetService">
+            <summary>
+            Network Service
+            此类包括网络服务，例如重定向器和服务器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.NetTrans">
+            <summary>
+            Network Transport
+            此类包括NDIS协议CoNDIS独立呼叫管理器和CoNDIS客户端，以及传输堆栈中的更高级别驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SecurityAccelerator">
+            <summary>
+            PCI SSL Accelerator
+            此类包括加速安全套接字层（SSL）加密处理的设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.PCMCIA">
+            <summary>
+            PCMCIA Adapters
+            此类包括PCMCIA和CardBus主机控制器，但不包括PCMCIA或CardBus外设。此类的驱动程序由系统提供。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Ports">
+            <summary>
+            Ports (COM  LPT ports)
+            此类包括串行和并行端口设备。另请参见MultiportSerial类。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Printer">
+            <summary>
+            Printers
+            此类包括打印机。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.PNPPrinters">
+            <summary>
+            Printers, Bus-specific class drivers
+            此类包括SCSI / 1394枚举的打印机。此类驱动程序为特定总线提供打印机通信。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Processor">
+            <summary>
+            Processors
+            此类包括处理器类型。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SCSIAdapter">
+            <summary>
+            SCSI and RAID Controllers
+            此类包括SCSI HBA（主机总线适配器）和磁盘阵列控制器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Sensor">
+            <summary>
+            Sensors
+            （Windows 7及更高版本的Windows）此类包括传感器和位置设备，例如GPS设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SmartCardReader">
+            <summary>
+            Smart Card Readers
+            此课程包括智能卡读卡器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SoftwareComponent">
+            <summary>
+            Software Component
+            （Windows 10版本1703及更高版本的Windows）此类包括用于封装软件组件的虚拟子设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.Volume">
+            <summary>
+            Storage Volumes
+            此类包括由系统提供的逻辑卷管理器定义的存储卷，以及用于创建表示存储卷的设备对象的类驱动程序，例如系统磁盘班级司机。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.System">
+            <summary>
+            System Devices
+            此类包括HAL，系统总线，系统桥，系统ACPI驱动程序和系统卷管理器驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.TapeDrive">
+            <summary>
+            Tape Drives
+            此类包括磁带机，包括所有磁带小类驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.USBDevice">
+            <summary>
+            USB Device
+            USBDevice包括所有不属于另一类的USB设备。此类不用于USB主机控制器和集线器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.WCEUSBS">
+            <summary>
+            Windows CE USB ActiveSync Devices
+            WCEUSBS安装类支持个人计算机与通过USB与Windows CE ActiveSync驱动程序（通常为PocketPC设备）兼容的设备之间的通信。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.WPD">
+            <summary>
+            Windows Portable Devices (WPD)
+            （Windows Vista和更高版本的Windows）此类包括WPD设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Common.SerialPortHelper.GuidClass.SideShow">
+            <summary>
+            Windows SideShow
+            （Windows Vista及更高版本的Windows）此类包括与Windows SideShow兼容的所有设备。
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.BaseConfig">
+            <summary>
+            基础配置
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.BaseConfig.FriendlyName">
+            <summary>
+            友好名
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.BaseConfig.TrackingGlasses">
+            <summary>
+            是否有追踪眼镜
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.BaseConfig.MonitorNameList">
+            <summary>
+            显示器硬件ID名匹配列表
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.BSConfig">
+            <summary>
+            大屏配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.BSConfig.PVidList">
+            <summary>
+            HID PID VID 匹配列表
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.BSConfig.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.F3DConfig">
+            <summary>
+            所有设备配置数据
+            </summary>
+        </member>
+        <member name="F:F3Device.Config.F3DConfig.Path">
+            <summary>
+            配置文件位置
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.GCConfig">
+            <summary>
+            GC200配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.GC3000Config">
+            <summary>
+            GC3000配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.ZSpace200Config">
+            <summary>
+            ZSpace200一体机配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.ZSpace300Config">
+            <summary>
+            ZSpace300一体机配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.ZSpaceNotebookConfig">
+            <summary>
+            ZSpace笔记本
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.BSConfig">
+            <summary>
+            大屏配置数据 放后面 优先返回一体机名称
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.GMConfig">
+            <summary>
+            投影配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.F3DConfig.ProjectionPriority">
+            <summary>
+            投屏优先权 
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.F3DConfig.Load">
+            <summary>
+            加载配置从C:\F3DFuture\Config\F3Device.xml 并且对比版本 如果当前库版本更高则更新到配置文件文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Config.GC3000Config">
+            <summary>
+            GC3000配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.GC3000Config.PVidList">
+            <summary>
+            HID PID VID 匹配列表
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.GC3000Config.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.GCConfig">
+            <summary>
+            一体机配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.GCConfig.PVidList">
+            <summary>
+            HID PID VID 匹配列表
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.GCConfig.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.GMConfig">
+            <summary>
+            投影设备配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.GMConfig.PVidList">
+            <summary>
+            HID PID VID 匹配列表
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.GMConfig.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.PVID">
+            <summary>
+            PID VID配置数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.PVID.Pid">
+            <summary>
+            PID
+            </summary>
+        </member>
+        <member name="P:F3Device.Config.PVID.Vid">
+            <summary>
+            VID
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.PVID.#ctor">
+            <summary>
+            默认构造
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.PVID.#ctor(System.String,System.String)">
+            <summary>
+            初始参数构造
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.ZSpace200Config">
+            <summary>
+            ZSpace200一体机配置
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.ZSpace200Config.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.ZSpace300Config">
+            <summary>
+            ZSpace300一体机配置
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.ZSpace300Config.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Config.ZSpaceNotebookConfig">
+            <summary>
+            ZSpace笔记本
+            </summary>
+        </member>
+        <member name="M:F3Device.Config.ZSpaceNotebookConfig.#ctor">
+            <summary>
+            构造当前版本的默认初始配置
+            </summary>
+        </member>
+        <member name="T:F3Device.Const">
+            <summary>
+            常量定义
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_GC">
+            <summary>
+            处理类GCExecute标识
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_BS">
+            <summary>
+            处理类BSExecute标识
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_GM">
+            <summary>
+            处理类GMExecute标识
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_WND">
+            <summary>
+            处理类WndExecute标识
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_MONITOR">
+            <summary>
+            处理类MonitorExecute标识
+            播放器调用一定切左右 片源左右格式
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.EXECUTE_FREQUENCY">
+            <summary>
+            处理类FrequencyExecute标识
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_2D">
+            <summary>
+            参数 切换2d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_3D">
+            <summary>
+            参数 切换3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_LR3D">
+            <summary>
+            参数 切换左右3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_UD3D">
+            <summary>
+            参数 切换上下3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_IFrame_2D">
+            <summary>
+            参数 切换2d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_IFrame_3D">
+            <summary>
+            参数 切换3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_IGraph_2D">
+            <summary>
+            参数 切换2d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_IGraph_UD_3D">
+            <summary>
+            参数 切换左右3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.PARAM_IGraph_LR_3D">
+            <summary>
+            参数 切换上下3d
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_FAIL">
+            <summary>
+            结果 失败
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_SUCCESS">
+            <summary>
+            结果 成功
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_PARAM_TYPE_ERROR">
+            <summary>
+            结果 参数类型错误
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_PARAM_LENGTH_ERROR">
+            <summary>
+            结果 参数长度错误
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_PARAM_INVALID">
+            <summary>
+            结果 参数无效
+            </summary>
+        </member>
+        <member name="F:F3Device.Const.RES_PARAM_NONE">
+            <summary>
+            结果 没有启动参数
+            </summary>
+        </member>
+        <member name="T:F3Device.DeviceManager">
+            <summary>
+            设备数据管理类
+            </summary>
+        </member>
+        <member name="F:F3Device.DeviceManager.IsInvoke">
+            <summary>
+            是否Invoke方式（调用进程方式）调用交互设备 
+            </summary>
+        </member>
+        <member name="F:F3Device.DeviceManager.StartupFromF3DPlayer">
+            <summary>
+            是否通过播放器调用
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.Instance">
+            <summary>
+            单例对象
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.AllDisplayDevices">
+            <summary>
+            所有显示设备数据列表
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.AllHidNames">
+            <summary>
+            所有HID连接列表
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.AllDevices">
+            <summary>
+            所有设备列表
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.AllMonitors">
+            <summary>
+            所有显示器信息列表
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.IsExtendProjection">
+            <summary>
+            windows是否是扩展显示模式（显示设备数量大于1）
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.IsCloneProjection">
+            <summary>
+            windows是否克隆显示模式 (显示设备数量=1 显示器数量>1)
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.DeviceName">
+            <summary>
+            返回一个设备名友好名 根据配置文件对比显示器名称 
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.Version">
+            <summary>
+            当前程序集版本 注：此参数控制更新本地配置文件 
+            </summary>
+        </member>
+        <member name="P:F3Device.DeviceManager.Config">
+            <summary>
+            本地配置数据
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.Refresh">
+            <summary>
+            刷新数据(包括配置数据、显示设备集合、hid连接集合、显示器集合) 
+            切换复制/扩展模式 请调用该函数刷新数据
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindMonitor(System.String)">
+            <summary>
+            从所有显示器集合根据名称(m_Name)查找显示器数据
+            </summary>
+            <param name="monitorName">显示器名称 （m_Name）</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindMonitors(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            依次与所有显示器范围计算交集 (交集范围>10 ,最大交集同一设备, 复制模式下会有多个)
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindMonitors(System.IntPtr)">
+            <summary>
+            根据窗口句柄查找交集范围的显示器数据集合 (交集范围>10 ,最大交集同一设备, 复制模式下会有多个)
+            </summary>
+            <param name="hwnd">窗口句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindMonitors(F3Device.API.SRect)">
+            <summary>
+            根据范围查找交集范围的显示器数据集合 (交集范围>10 ,最大交集同一设备, 复制模式下会有多个)
+            </summary>
+            <param name="rect"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindDevice(F3Device.Screen.Monitor)">
+            <summary>
+            通过显示器数据(m_Name)查找对应的设备类 
+            </summary>
+            <param name="monitor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindDevice(System.IntPtr)">
+            <summary>
+            通过窗口句柄查找所在的显示器的设备类
+            如果复制模式下 优先返回： 公司一体机>公司大屏>其他
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindDevice(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            通过范围查找所在的显示器的设备类
+            如果复制模式下 优先返回： 公司一体机>公司大屏>其他
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.GetDevice``1">
+            <summary>
+            从所有设备列表中返回某类型
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.GetDevices``1">
+            <summary>
+            从所有设备列表中返回某类型集合
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindProjectionMonitor(System.IntPtr)">
+            <summary>
+            返回投屏窗口应该所在显示器
+            传入主窗口句柄 首先排除主窗口所在显示器
+            剩余显示器中查找的优先级别：公司大屏 > 公司一体机 > 其他显示器 
+            </summary>
+            <param name="mainHwnd">主窗口句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.DeviceManager.IsExist(System.Collections.Generic.List{F3Device.Screen.Monitor},F3Device.Screen.Monitor)">
+            <summary>
+            是否存在
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindMonitorRect(F3Device.API.SRect)">
+            <summary>
+            找显示器所在范围 Course3D用了
+            </summary>
+        </member>
+        <member name="M:F3Device.DeviceManager.FindGCMonitor">
+            <summary>
+            查找一体机所在显示器
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.BSDevice">
+            <summary>
+            大屏设备 通过HID转接口控制/通过串口控制
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.BSDevice.Switch_IGraph_2D">
+            <summary>
+            切换2D
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.BSDevice.Switch_IGraph_UD_3D">
+            <summary>
+            切换上下画面
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.BSDevice.Switch_IGraph_LR_3D">
+            <summary>
+            切换左右画面
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.GC3000Device">
+            <summary>
+            默认帧同步
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GC3000Device.Switch_IFrame_2D">
+            <summary>
+            持帧同步由眼镜切 我们不主动切换
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GC3000Device.Switch_IFrame_3D">
+            <summary>
+            持帧同步由眼镜切 我们不主动切换
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.GCDevice">
+            <summary>
+            gc200 一体机设备 仅支持左右画面 
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GCDevice.Switch_IGraph_2D">
+            <summary>
+            切换2D
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GCDevice.Switch_IGraph_UD_3D">
+            <summary>
+            切换上下画面
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GCDevice.Switch_IGraph_LR_3D">
+            <summary>
+            切换左右画面
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GCDevice.ReadID(System.Action{System.String},System.Int64)">
+            <summary>
+            回调函数在其他线程 暂不支持Unity里调用 默认5秒超时
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.GMDevice">
+            <summary>
+            投影机设备
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GMDevice.Switch_IGraph_2D">
+            <summary>
+            切换2D
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GMDevice.Switch_IGraph_UD_3D">
+            <summary>
+            切换上下画面
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.GMDevice.Switch_IGraph_LR_3D">
+            <summary>
+            切换左右画面
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.BaseDevice">
+            <summary>
+            设备基类
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.TrackingGlasses">
+            <summary>
+            是否有追踪眼镜
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.PvIdList">
+            <summary>
+            判断的PID VID的列表
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.PVid">
+            <summary>
+            返回当前PVID列表中任一当前已连接的PVID数据
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.HIDIsLinked">
+            <summary>
+            当前PVID列表是否任一连接Hid设备
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.BaseDevice.Config(F3Device.Config.F3DConfig)">
+            <summary>
+            配置数据 现在设备显示器PVID的兼容判断数据都从配置来
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="F:F3Device.Device.BaseDevice.m_curState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.MonitorNameList">
+            <summary>
+            某些设备使用的扩展显示器名称列表
+            </summary>
+        </member>
+        <member name="P:F3Device.Device.BaseDevice.Monitor">
+            <summary>
+            返回显示器列表中存在的显示器 --- 注意连接了多个硬件ID都是设备的只返回前一个显示器
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.BaseDevice.Switch(F3Device.Screen.ShowState)">
+            <summary>
+            切换设备显示状态 仅支持实现了IGraph3Device或者IFrame3Device接口的设备
+            </summary>
+            <param name="state">状态参数</param>
+            <returns> Const.RES_SUCCESS / Const.RES_FAIL </returns>
+        </member>
+        <member name="T:F3Device.Device.IFrame3Device">
+            <summary>
+            帧同步
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.IFrame3Device.Switch_IFrame_2D">
+            <summary>
+            切换2D
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.IFrame3Device.Switch_IFrame_3D">
+            <summary>
+            切换3D
+            </summary>
+        </member>
+        <member name="T:F3Device.Device.IGraph3Device">
+            <summary>
+            设备3d(左右/上下)画面接口
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.IGraph3Device.Switch_IGraph_2D">
+            <summary>
+            切换2D
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.IGraph3Device.Switch_IGraph_UD_3D">
+            <summary>
+            切换上下画面
+            </summary>
+        </member>
+        <member name="M:F3Device.Device.IGraph3Device.Switch_IGraph_LR_3D">
+            <summary>
+            切换左右画面
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.BSExecute.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.BSExecute.AnalyzeArgs(System.String[])">
+            <summary>
+            解析启动参数
+            </summary>
+            <param name="args">启动参数</param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Execute.FrequencyExecute">
+            <summary>
+            帧率设置
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.FrequencyExecute.GetSupportDevices">
+            <summary>
+            支持的设备列表
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.FrequencyExecute.ExecuteArgs2(System.Int32,System.String[])">
+            <summary>
+            设置所有/播放器下特定(gc3000)
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.FrequencyExecute.ExecuteArgs3(System.Int32,System.String[])">
+            <summary>
+            特定设备的帧率
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.FrequencyExecute.ExecuteArgs6(System.Int32,System.String[])">
+            <summary>
+            范围所在显示器
+            </summary>
+        </member>
+        <member name="F:F3Device.Execute.ExecuteFactory.instance">
+            <summary>
+            单例对象
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.ExecuteFactory.Instance">
+            <summary>
+            返回单例实例
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.ExecuteFactory.#ctor">
+            <summary>
+            添加支持的执行对象
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.ExecuteFactory.FindByName(System.String)">
+            <summary>
+            根据指令名查找支持的指令对象
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Execute.ExecuteFactory.WriteExplains">
+            <summary>
+            -h输出显示
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.GCExecute.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.GCExecute.AnalyzeArgs(System.String[])">
+            <summary>
+            解析启动参数
+            </summary>
+            <param name="args">启动参数</param>
+            <returns></returns>
+        </member>
+        <member name="P:F3Device.Execute.GMExecute.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.GMExecute.AnalyzeArgs(System.String[])">
+            <summary>
+            解析启动参数
+            </summary>
+            <param name="args">启动参数</param>
+            <returns></returns>
+        </member>
+        <member name="F:F3Device.Execute.IExecute.m_name">
+            <summary>
+            对应Const的传入指令 在构造Execute时赋值
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.IExecute.Name">
+            <summary>
+            对应Const的传入指令
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.IExecute.Execute(System.String[])">
+            <summary>
+            执行参数
+            </summary>
+            <param name="args">启动参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Execute.IExecute.ToArguments">
+            <summary>
+            返回调用参数 用来Invoke进程调用传参
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Execute.IExecute.Explains">
+            <summary>
+            参数解释 用来控制台-h查看支持的指令 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Execute.IExecute.Pad(System.String)">
+            <summary>
+            补位输出 让-h参数解释更好看
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Execute.MonitorExecute">
+            <summary>
+            目前播放器占用 一定切左右
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.MonitorExecute.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Execute.MonitorExecute.m_left">
+            <summary>
+            显示器范围left
+            </summary>
+        </member>
+        <member name="F:F3Device.Execute.MonitorExecute.m_top">
+            <summary>
+            显示器范围left
+            </summary>
+        </member>
+        <member name="F:F3Device.Execute.MonitorExecute.m_right">
+            <summary>
+            显示器范围right
+            </summary>
+        </member>
+        <member name="F:F3Device.Execute.MonitorExecute.m_bottom">
+            <summary>
+            显示器范围bottom
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.MonitorExecute.AnalyzeArgs(System.String[])">
+            <summary>
+            解析启动参数
+            </summary>
+            <param name="args">启动参数</param>
+            <returns></returns>
+        </member>
+        <member name="P:F3Device.Execute.WndExecute.CurState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="P:F3Device.Execute.WndExecute.Handle">
+            <summary>
+            窗口句柄
+            </summary>
+        </member>
+        <member name="M:F3Device.Execute.WndExecute.AnalyzeArgs(System.String[])">
+            <summary>
+            解析传入启动
+            </summary>
+            <param name="args">启动参数</param>
+        </member>
+        <member name="M:F3Device.Hid.HidHelper.HidD_GetHidGuid(System.Guid@)">
+            <summary>
+            获得GUID
+            </summary>
+            <param name="HidGuid"></param>
+        </member>
+        <member name="M:F3Device.Hid.HidHelper.GetUsbFileNames">
+            <summary>
+            返回hid连接列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Hid.HidHelper.GetHidStreamWin32(System.String,System.String,System.IO.FileStream@,System.Int32@,System.Int32@)">
+            <summary>
+            连接hid设备 
+            </summary>
+        </member>
+        <member name="M:F3Device.Hid.HidHelper.GetHidStream(System.String,System.String,System.IO.FileStream@,System.Int32@,System.Int32@)">
+            <summary>
+            连接hid设备 
+            </summary>
+        </member>
+        <member name="F:F3Device.Hid.HIDP_CAPS.InputReportByteLength">
+            <summary>
+            输入报告的最大节数数量（如果使用报告ID，则包含报告ID的字节）
+            Specifies the maximum size, in bytes, of all the input reports (including the report ID, if report IDs are used, which is prepended to the report data).
+            </summary>
+        </member>
+        <member name="M:F3Device.Invoke.InvokeProcess(System.String)">
+            <summary>
+            启动本dll（必须是exe修改来的）
+            </summary>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Invoke.InvokeProcess(F3Device.Execute.IExecute)">
+            <summary>
+            进程方式调用IExecute
+            </summary>
+            <param name="execute"></param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Model.BaseList`1">
+            <summary>
+            一个支持保存/加载到xml的集合基类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:F3Device.Model.BaseList`1.SaveToXml(System.String)">
+            <summary>
+            以Xml格式保存到文件
+            </summary>
+        </member>
+        <member name="M:F3Device.Model.BaseList`1.LoadFromXml(System.String)">
+            <summary>
+            从Xml文件（跟节点以下节点）加载到当前集合
+            </summary>
+        </member>
+        <member name="M:F3Device.Model.BaseList`1.LoadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            从该父文档节点加载到集合
+            </summary>
+        </member>
+        <member name="M:F3Device.Model.BaseList`1.SaveToXmlNode(System.Xml.XmlNode)">
+            <summary>
+            保存当前集合到该文档节点下
+            </summary>
+        </member>
+        <member name="T:F3Device.Model.ANoStorage">
+            <summary>
+            描述字段不保存到xml文件
+            </summary>
+        </member>
+        <member name="T:F3Device.Model.ANoLoad">
+            <summary>
+            描述字段不加载从xml文件
+            </summary>
+        </member>
+        <member name="T:F3Device.Model.BaseModel">
+            <summary>
+            一个支持保存/加载到xml的基类
+            </summary>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.GetListChildType(System.Type)">
+            <summary>
+            迭代查找实际集合类型
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.SaveToXmlNode(System.Xml.XmlDocument,System.Xml.XmlNode,System.Reflection.PropertyInfo[])">
+            <summary>
+            将当前数据保存到父节点
+            </summary>
+            <param name="doc">XML文档</param>
+            <param name="parentNode">XML父节点</param>
+            <param name="fields">当前类型属性数组</param>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.SaveToXmlNode(System.Xml.XmlNode,System.Collections.Generic.List{F3Device.Model.BaseModel})">
+            <summary>
+            将集合数据保存到节点下
+            </summary>
+            <param name="node">保存到节点</param>
+            <param name="list">集合数据</param>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.SaveToXmlNode(System.Xml.XmlNode,System.Collections.IList)">
+            <summary>
+            将集合数据保存到节点下
+            </summary>
+            <param name="node">保存到节点</param>
+            <param name="list">集合数据</param>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.SaveToXml(System.String)">
+            <summary>
+            保存到XML文件
+            </summary>
+            <param name="path">文件位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.LoadFromXmlNode(System.Xml.XmlNode,System.Reflection.PropertyInfo[])">
+            <summary>
+            从XML节点加载数据到当前对象
+            </summary>
+            <param name="node">针对加载节点</param>
+            <param name="fields">当前类型属性数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.LoadFromXmlNode(System.Xml.XmlNode,System.Collections.IList,System.Type)">
+            <summary>
+            从XML节点加载集合数据
+            </summary>
+            <param name="node">节点</param>
+            <param name="list">加载目标的集合数据</param>
+            <param name="childType">集合中类型</param>
+        </member>
+        <member name="M:F3Device.Model.BaseModel.LoadFromXml(System.String)">
+            <summary>
+            从XML加载数据
+            </summary>
+            <param name="path">文件位置</param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Screen.DpiInfo">
+            <summary>
+            Dpi信息
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DpiInfo.dpiX">
+            <summary>
+            x
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DpiInfo.dpiY">
+            <summary>
+            y
+            </summary>
+        </member>
+        <member name="P:F3Device.Screen.DpiInfo.ScalingX">
+            <summary>
+            x比值
+            </summary>
+        </member>
+        <member name="P:F3Device.Screen.DpiInfo.ScalingY">
+            <summary>
+            y比值
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DISPLAYCONFIG_2DREGION">
+            <summary>
+            表示二维空间中的点或偏移量
+            最低支持的客户端 Windows 7 
+            wingdi.h (include Windows.h)
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_2DREGION.cx">
+            <summary>
+            点或偏移量的水平分量。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_2DREGION.cy">
+            <summary>
+            点或偏移量的垂直分量。
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_HEADER">
+            <summary>
+            包含有关设备的显示信息
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_HEADER.type">
+            <summary>
+            用于确定要检索或设置的设备信息的类型。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_HEADER.size">
+            <summary>
+            检索或设置的设备信息的大小（以字节为单位）。此大小包括标头的大小以及标头后面的其他数据的大小。该设备信息取决于请求类型。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_HEADER.adapterId">
+            <summary>
+            本地唯一标识符（LUID），用于标识设备信息包所引用的适配器。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_HEADER.id">
+            <summary>
+            要获取或设置其设备信息的源或目标标识符。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_TARGET_DEVICE_NAME.outputTechnology">
+            <summary>
+            来自DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY枚举的值，用于指定目标的连接器类型
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_TARGET_DEVICE_NAME.edidManufactureId">
+            <summary>
+            The manufacture identifier from the monitor extended display identification data (EDID). This member is set only when the edidIdsValid bit-field is set in the flags member.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_TARGET_DEVICE_NAME.edidProductCodeId">
+            <summary>
+            The product code from the monitor EDID. This member is set only when the edidIdsValid bit-field is set in the flags member.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_TARGET_DEVICE_NAME.connectorInstance">
+            <summary>
+            仅当适配器具有多个此类目标时，此特定目标的基于一个实例的实例号。连接器实例是一个连续的基于一的编号，在每个适配器中都是唯一的。如果这是适配器上此类型的唯一目标，则此值为零。
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DisplayDevice">
+            <summary>
+            显示设备数据
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDevice.m_IsPrimary">
+            <summary>
+            是否主屏
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDevice.m_Monitors">
+            <summary>
+            显示器列表
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DEVMODE_SETTINGS.ENUM_CURRENT_SETTINGS">
+            <summary>
+            检索显示设备的当前设置。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DEVMODE_SETTINGS.ENUM_REGISTRY_SETTINGS">
+            <summary>
+            检索当前存储在注册表中的显示设备的设置。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.AttachedToDesktop">
+            <summary>The device is part of the desktop.</summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.PrimaryDevice">
+            <summary>The device is part of the desktop.</summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.MirroringDriver">
+            <summary>Represents a pseudo device used to mirror application drawing for remoting or other purposes.</summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.VGACompatible">
+            <summary>The device is VGA compatible.</summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.Removable">
+            <summary>The device is removable; it cannot be the primary display.</summary>
+        </member>
+        <member name="F:F3Device.Screen.DisplayDeviceStateFlags.ModesPruned">
+            <summary>The device has more display modes than its output devices support.</summary>
+        </member>
+        <member name="T:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE">
+            <summary>
+            枚举指定要通过DisplayConfigSetDeviceInfo或DisplayConfigGetDeviceInfo函数配置或获取的显示设备信息的类型。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME">
+            <summary>
+            指定显示设备的源名称。如果DisplayConfigGetDeviceInfo函数成功，则DisplayConfigGetDeviceInfo在DISPLAYCONFIG_SOURCE_DEVICE_NAME结构中返回源名称。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME">
+            <summary>
+            指定有关监视器的信息。如果DisplayConfigGetDeviceInfo函数成功执行，则DisplayConfigGetDeviceInfo在DISPLAYCONFIG_TARGET_DEVICE_NAME结构中返回有关监视器的信息。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE">
+            <summary>
+            指定有关监视器的首选模式的信息。如果DisplayConfigGetDeviceInfo函数成功执行，则DisplayConfigGetDeviceInfo在DISPLAYCONFIG_TARGET_PREFERRED_MODE结构中返回有关监视器的首选模式的信息。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME">
+            <summary>
+            指定图形适配器名称。如果DisplayConfigGetDeviceInfo函数成功执行，则DisplayConfigGetDeviceInfo在DISPLAYCONFIG_ADAPTER_NAME结构中返回适配器名称。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE">
+            <summary>
+            指定如何设置监视器。如果DisplayConfigSetDeviceInfo函数成功执行，则DisplayConfigSetDeviceInfo使用DISPLAYCONFIG_SET_TARGET_PERSISTENCE结构中的信息以引导持久方式强制输出。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE">
+            <summary>
+            指定如何为给定的目标ID设置基本输出技术。如果DisplayConfigGetDeviceInfo函数成功，则DisplayConfigGetDeviceInfo以DISPLAYCONFIG_TARGET_BASE_TYPE结构返回基本输出技术信息。
+            WDDM 1.3和更高版本支持在Windows 8.1和更高版本上运行的用户模式显示驱动程序。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DISPLAYCONFIG_DEVICE_INFO_TYPE.DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32">
+            <summary>
+            强制将此枚举编译为32位大小。没有此值，某些编译器将允许此枚举编译为32位以外的大小。您不应使用此值。
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DPI_AWARENESS">
+            <summary>
+            Identifies the dots per inch (dpi) setting for a thread, process, or window.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS.DPI_AWARENESS_INVALID">
+            <summary>
+            Invalid DPI awareness. This is an invalid DPI awareness value.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS.DPI_AWARENESS_UNAWARE">
+            <summary>
+            DPI unaware. 
+            This process does not scale for DPI changes and is always assumed to have a scale factor of 100% (96 DPI). 
+            It will be automatically scaled by the system on any other DPI setting.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS.DPI_AWARENESS_SYSTEM_AWARE">
+            <summary>
+            System DPI aware. This process does not scale for DPI changes. 
+            It will query for the DPI once and use that value for the lifetime of the process. 
+            If the DPI changes, the process will not adjust to the new DPI value. 
+            It will be automatically scaled up or down by the system when the DPI changes from the system value.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS.DPI_AWARENESS_PER_MONITOR_AWARE">
+            <summary>
+            Per monitor DPI aware. 
+            This process checks for the DPI when it is created and adjusts the scale factor whenever the DPI changes. 
+            These processes are not automatically scaled by the system.
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DPI_AWARENESS_CONTEXT">
+            <summary>
+            详情了解 -> https://docs.microsoft.com/zh-cn/windows/win32/hidpi/dpi-awareness-context
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_DEFAULT">
+            <summary>
+            Undocumented
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_UNAWARE">
+            <summary>
+            Undocumented
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_SYSTEM_AWARE">
+            <summary>
+            Undocumented
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE">
+            <summary>
+            Undocumented
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2">
+            <summary>
+            win10 较早版本的操作系统上不可用
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DPI_AWARENESS_CONTEXT.DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED">
+            <summary>
+            Undocumented
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.DpiType">
+            <summary>
+            dpi的类型
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DpiType.Effective">
+            <summary>
+            Effective dpi that incorporates accessibility overrides and matches what Desktop Window Manage (DWM) uses to scale desktop applications.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DpiType.Angular">
+            <summary>
+            Dpi that ensures rendering at a compliant angular resolution on the screen, without incorporating accessibility overrides.
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.DpiType.Raw">
+            <summary>
+            Linear dpi of the screen as measured on the screen itself.
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.ShowState">
+            <summary>
+            显示状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.Unknow">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState._2D">
+            <summary>
+            2d状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState._3D">
+            <summary>
+            3d状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.LR_3D">
+            <summary>
+            左右画面的3d状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.UD_3D">
+            <summary>
+            上下画面的3d状态
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.IFrame_2D">
+            <summary>
+            帧画面2D
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.IFrame_3D">
+            <summary>
+            帧画面3D
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.IGraph_2D">
+            <summary>
+            分图画面2D
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.IGraph_UD_3D">
+            <summary>
+            分图左右3D
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ShowState.IGraph_LR_3D">
+            <summary>
+            分图上下3D
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.Monitor">
+            <summary>
+            显示器数据
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.Monitor.m_Name">
+            <summary>
+            硬件ID名
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.Monitor.m_DeviceName">
+            <summary>
+            设备名可能没有(杂牌显示器)
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.Monitor.m_FriendlyDeviceName">
+            <summary>
+            控制面板高级显示设置的友好名
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.RECT">
+            <summary>
+            矩形数据结构
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.RECT.Left">
+            <summary>
+            左
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.RECT.Top">
+            <summary>
+            上
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.RECT.Right">
+            <summary>
+            右
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.RECT.Bottom">
+            <summary>
+            下
+            </summary>
+        </member>
+        <member name="P:F3Device.Screen.RECT.Width">
+            <summary>
+            宽
+            </summary>
+        </member>
+        <member name="P:F3Device.Screen.RECT.Height">
+            <summary>
+            高
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.RECT.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="left">左</param>
+            <param name="top">上</param>
+            <param name="right">右</param>
+            <param name="bottom">下</param>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Contains(System.Int32,System.Int32)">
+            <summary>
+            判断包含
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Contains(F3Device.Screen.RECT)">
+            <summary>
+            判断包含
+            </summary>
+            <param name="rect">范围矩形</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Inflate(System.Int32,System.Int32)">
+            <summary>
+            缩放
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Intersect(F3Device.Screen.RECT)">
+            <summary>
+            计算相交范围更新到当前
+            </summary>
+            <param name="rect"></param>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Intersect(F3Device.Screen.RECT,F3Device.Screen.RECT)">
+            <summary>
+            返回两矩形相交范围
+            </summary>
+            <param name="a">矩形a</param>
+            <param name="b">矩形b</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.RECT.IntersectsWith(F3Device.Screen.RECT)">
+            <summary>
+            是否相交
+            </summary>
+            <param name="rect">与判断对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.RECT.Union(F3Device.Screen.RECT,F3Device.Screen.RECT)">
+            <summary>
+            合并
+            </summary>
+            <param name="a">矩形a</param>
+            <param name="b">矩形b</param>
+            <returns></returns>
+        </member>
+        <member name="T:F3Device.Screen.ScreenHelper">
+            <summary>
+            windows屏幕和显示器帮助类
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_TOPOLOGY_INTERNAL">
+            <summary>
+            仅电脑屏幕
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_TOPOLOGY_CLONE">
+            <summary>
+            双屏复制
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_TOPOLOGY_EXTEND">
+            <summary>
+            双屏扩展
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_TOPOLOGY_EXTERNAL">
+            <summary>
+            第二屏幕
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_TOPOLOGY_SUPPLIED">
+            <summary>
+            ???
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.SDC_USE_DATABASE_CURRENT">
+            <summary>
+            ???
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_GLOBAL">
+            <summary>
+            这些设置将保存在全局设置区内，因此它们对所有用户都有作用，该标志只有与CDS_UPDATEREGISTRY标志一起设置时才有效。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_NORESET">
+            <summary>
+            设置保存在注册表中，但不起作用，该标志只有和CDS_UPDATEREGISTRY标志一起指定时才有效。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_RESET">
+            <summary>
+            即使请求设置与当前设置相同，也会改变设置。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_SET_PRIMARY">
+            <summary>
+            该设备将成为原始设备。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_TEST">
+            <summary>
+            如果请求的图形模要被设置，则系统进行测试，CDS_FULLSCREEN从本质上讲这种模式是暂时的。（对于Windows NT：如果改变到另一个桌面，或从另一个桌面改变，那么该模式将不被重置）。
+            </summary>
+        </member>
+        <member name="F:F3Device.Screen.ScreenHelper.CDS_UPDATEREGISTRY">
+            <summary>
+            当前屏幕的图形模式将动态地改变并且在注册表中图形模式将会更新，模式信息存储在USER描述文件中。
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetRefreshRate(System.UInt32)">
+            <summary>
+            获取刷新率
+            </summary>
+            <param name="displayIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetRefreshRate(System.UInt32,System.Double)">
+            <summary>
+            设置刷新率
+            </summary>
+            <param name="displayIndex"></param>
+            <param name="refreshRate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetProjection(System.UInt32)">
+            <summary>
+            设置投屏模式
+            SDC_TOPOLOGY_INTERNAL
+            SDC_TOPOLOGY_CLONE  克隆
+            SDC_TOPOLOGY_EXTEND 扩展
+            SDC_TOPOLOGY_EXTERNAL
+            </summary>
+            <param name="displayModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.IsCloneProjection(System.Collections.Generic.List{F3Device.Screen.DisplayDevice})">
+            <summary>
+            是否是克隆模式
+            </summary>
+            <param name="allDisplayDevice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.IsExtendProjection(System.Collections.Generic.List{F3Device.Screen.DisplayDevice})">
+            <summary>
+            是否是扩展模式
+            </summary>
+            <param name="allDisplayDevice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetCloneProjection">
+            <summary>
+            设置克隆模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetExtendProjection">
+            <summary>
+            设置扩展模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetInternalProjection">
+            <summary>
+            设置仅电脑
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetExternalProjection">
+            <summary>
+            设置仅第二屏
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetAllDisplayDevice">
+            <summary>
+            win10以上 监视器感知 InitProcessDpiAware / InitThreadDpiAware 将影响输出的值
+            友情提示SetWindowPos 参数对应MonitorInfo数据 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.Intersect(System.Int32,System.Int32,System.Int32,System.Int32,System.Collections.Generic.List{F3Device.Screen.DisplayDevice}@,F3Device.Screen.DisplayDevice@,F3Device.Screen.Monitor@,F3Device.Screen.MonitorInfo@,System.Int64@)">
+            <summary>
+            outMonitor 对应工作区域  dd.m_DEVMODE 对应屏幕区域
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetPrimaryScreen(System.String)">
+            <summary>
+            设置主屏
+            </summary>
+            <param name="deviceName"></param>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetPrimaryScreen(System.Collections.Generic.List{F3Device.Screen.DisplayDevice})">
+            <summary>
+            获取主屏
+            </summary>
+            <param name="devices"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetUnPrimaryScreen(System.Collections.Generic.List{F3Device.Screen.DisplayDevice})">
+            <summary>
+            获取非主屏设备集合
+            </summary>
+            <param name="devices">设备集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.Inside(System.Collections.Generic.List{F3Device.Screen.DisplayDevice},System.Int32,System.Int32)">
+            <summary>
+            返回坐标所在设备内部
+            </summary>
+            <param name="list">设备集合</param>
+            <param name="monitorX">显示器坐标X</param>
+            <param name="monitorY">显示器坐标Y</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.EnumDeviceSettings(System.String)">
+            <summary>
+            枚举当前显示设备支持的所有显示设置
+            </summary>
+            <param name="deviceName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetSystemMetrics(System.Int32)">
+            <summary>
+            获取系统数据
+            </summary>
+            <param name="nIndex">索引</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetThreadDpiAwarenessContext">
+            <summary>
+            Windows 10, version 1607 [desktop apps only]
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetWindowDpiAwarenessContext(System.IntPtr)">
+            <summary>
+            Windows 10, version 1607 [desktop apps only]
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetAwarenessFromDpiAwarenessContext(F3Device.Screen.DPI_AWARENESS_CONTEXT)">
+            <summary>
+            Windows 10, version 1607 [desktop apps only]
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetThreadDpiAwarenessContext(F3Device.Screen.DPI_AWARENESS_CONTEXT)">
+            <summary>
+            Windows 10, version 1607 [desktop apps only]
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetProcessDpiAwareness(F3Device.Screen.DPI_AWARENESS)">
+            <summary>
+            win8.1以上 进程仅能成功设置一次
+            </summary>
+            <param name="value"></param>
+            <returns> S_OK:该应用程序的DPI意识已成功设置  E_INVALIDARG:传入的值无效 E_ACCESSDENIED:已经设置过了DPI感知 </returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetProcessDpiAwareness(System.IntPtr,F3Device.Screen.DPI_AWARENESS@)">
+            <summary>
+            win8.1以上
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetDpiForMonitor(System.IntPtr,F3Device.Screen.DpiType,System.UInt32@,System.UInt32@)">
+            <summary>
+            win8.1以上 返回数据与设置的感知有关 
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetDpiForWindow(System.IntPtr)">
+            <summary>
+            支持最低版本 Windows 10, version 1607 [desktop apps only]
+            返回数据取决于窗口的感知
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.InitThreadDpiAware">
+            <summary>
+            想要正确的监视器dpi数据 =>设置线程感知  
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.InitProcessDpiAware">
+            <summary>
+            初始化进程感知 仅能设置一次 后续将失败
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.IsCustomScaling">
+            <summary>
+            这是查看是否是自定义缩放
+            修改需要注销
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetDpiLevel(F3Device.Screen.Monitor)">
+            <summary>
+            从注册表获取自己设置的DPI
+            </summary>
+            <param name="monitor">显示器</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetDpiLevel(F3Device.Screen.DisplayDevice,System.Int32,System.Boolean)">
+            <summary>
+            设置显示设备Dpi 推荐值=0
+            Since I'm only testing three possible values 0, -2 (4294967294), and -1 (4294967295), only doing this three times.
+            0 would be the default for that monitor(could be 100% or 150%, there may be others, but 150% is afaik only for high-res modern laptop screens)
+            -2 would be two options above default (e.g.my lenovo defaults at 150%, but offers 125% above, -1, 100% above that, -2 -- also 175%, 1, and 200%, 2)
+            -1 would be one option above default (other monitors don't have 5 options like my lenovo, and might be 100%, 150% default, 200% -- hence -1, 0, 1)
+            </summary>
+            <param name="device">显示设备</param>
+            <param name="level">[?-?]</param>
+            <param name="refresh">是否设置完刷新</param>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetPels(F3Device.Screen.DisplayDevice,System.Int32,System.Int32)">
+            <summary>
+            设置分辨率
+            </summary>
+            <param name="device">设备</param>
+            <param name="width">像素宽</param>
+            <param name="height">像素高</param>
+            <returns></returns>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.SetFrequency(F3Device.Screen.DisplayDevice,System.Int32)">
+            <summary>
+            设置刷新率
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.ScreenHelper.GetAllDisplayConfig">
+            <summary>
+            呼叫者无权访问控制台会话。如果调用进程无权访问当前桌面或正在远程会话上运行，则会发生此错误。
+            </summary>
+        </member>
+        <member name="T:F3Device.Screen.Touch">
+            <summary>
+            触摸处理
+            </summary>
+        </member>
+        <member name="M:F3Device.Screen.Touch.Rectify(F3Device.API.SRect,F3Device.API.SPoint,F3Device.API.SPoint@,F3Device.API.SPoint@,F3Device.Screen.ShowState)">
+            <summary>
+            3d模式下触屏响应坐标矫正到实际点击坐标
+            </summary>
+            <param name="screen">显示器范围</param>
+            <param name="input">触屏响应坐标</param>
+            <param name="touch1">输出左半屏响应位置</param>
+            <param name="touch2">输出右半屏响应位置</param>
+            <param name="model"></param>
+        </member>
+    </members>
+</doc>
