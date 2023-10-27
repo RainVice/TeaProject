@@ -1,3 +1,16 @@
 {
-	"name": "TeaProject"
+    "name": "TeaProject",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b745c738ae65c9f4190792c479f47fe1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
