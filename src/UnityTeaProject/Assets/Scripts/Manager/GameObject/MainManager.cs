@@ -9,6 +9,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TeaProject.UI;
 using UnityEngine;
 
 namespace TeaProject.Manager
@@ -47,7 +48,7 @@ namespace TeaProject.Manager
             });
             yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
             {
-                
+                new Tuple<Type, string>(typeof(UILoadView),"Prefabs/UI/panleLoading")
             });
             //yield return LevelManager.Instance.Init();
             // ***********************************
