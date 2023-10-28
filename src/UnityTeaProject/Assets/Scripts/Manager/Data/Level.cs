@@ -18,7 +18,7 @@ namespace TeaProject
     /// <summary>
     /// 保存场景信息，跳转伪加载
     /// </summary>
-    public class Level : ILevel
+    public abstract class Level : ILevel
     {
 
         #region  Public fields and properties
@@ -28,6 +28,9 @@ namespace TeaProject
 
         //当前场景索引
         public int Index;
+        
+        //当前场景名
+        public string Name;
 
         //下一个场景索引
         public int NextIndex;
@@ -39,7 +42,7 @@ namespace TeaProject
         
         public string GetLevelName()
         {
-            return SceneManager.GetSceneAt(Index).name;
+            return Name;
         }
 
         public ILevel GetNextLevel()
@@ -64,7 +67,6 @@ namespace TeaProject
 
         public void OnLoad(AsyncOperation operation)
         {
-            // operation.allowSceneActivation = false;
             if (OnloadEvent != null)
             {
                 OnloadEvent(operation);
@@ -72,12 +74,13 @@ namespace TeaProject
         }
 
         /// <summary>
-        /// 加载前播放加载动画
+        /// 加载前播放加载动画,不使用此函数则不出现加载动画
         /// </summary>
-        /// <param name="transform">用于存放加载动画的UI组件</param>
+        /// <param name="transform">用于存放加载动画的Canvas组件</param>
         /// <returns>this</returns>
-        public Level ShowLoad(Transform transform)
+        public Level ShowLoadingPage(Transform transform)
         {
+            OnloadEvent = operation => operation.allowSceneActivation = false;
             UIManager.Instance.Show<UILoadingPage>(transform);
             return this;
         }

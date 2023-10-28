@@ -54,7 +54,8 @@ namespace TeaProject.UI
                 string password = m_inputPassword.text;
                 if (true)
                 {
-                    Level level = DataManager.Instance.GetData<LevelData>().Get<Level>(1);
+                    Level level = DataManager.Instance.GetData<LevelData>()
+                        .Get<Level>(1).ShowLoadingPage(transform.parent);
                     LevelManager.Instance.PushLevel(level);
                 }
                 else

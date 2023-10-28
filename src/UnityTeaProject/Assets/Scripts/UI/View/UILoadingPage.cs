@@ -6,6 +6,7 @@
 // Description          : 场景通用加载动画
 //**********************************************************************
 
+using TeaProject.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,7 +50,9 @@ namespace TeaProject.UI
                 else
                 {
                     m_isLoading = false;
-                    
+                    // 跳转场景动画
+                    if (LevelManager.Instance.CurrentLevel is Level currentLevel)
+                        currentLevel.OnloadEvent += operation => operation.allowSceneActivation = true;
                 }
             }
         }
