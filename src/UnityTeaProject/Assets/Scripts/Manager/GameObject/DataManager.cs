@@ -14,6 +14,7 @@ using TeaProject.Manager;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Text;
+using System.Text.Json;
 
 namespace TeaProject
 {
@@ -25,10 +26,10 @@ namespace TeaProject
 
     #region Public or protected fields and properties        
         /// <summary>
-        /// 解码器对象
+        /// 解密器对象
         /// </summary>
-        /// <value>如果此值不为空，则 DataManager在读取文件时会使用此解码器来解析文件流；如果此值为空，则默认文件未加密</value>
-        public Func<string, string> Decrypt
+        /// <value>如果此值不为空，则数据管理器在读取文件时会使用此解码器来解析文件流；如果此值为空，则默认文件未加密</value>
+        public Func<byte[], byte[]> Decrypt
         {
             get
             {
@@ -39,7 +40,10 @@ namespace TeaProject
                 m_Decrypt = value;
             }
         }
-
+        /// <summary>
+        /// 指示数据管理器编码格式
+        /// </summary>
+        /// <value>如果此值不为空，则数据管理器会使用此编码格式来读取文件；如果此值为空，则默认使用 UTF-8 编码格式</value>
         public Encoding DataEncoding
         {
             get
@@ -54,9 +58,9 @@ namespace TeaProject
     #endregion
 
     #region Private fields and properties
-        private Func<string, string> m_Decrypt;
+        private Func<byte[], byte[]> m_Decrypt;
         private Encoding m_DataEncoding;
-        private Dictionary<Type, IData> m_DataDictionary;
+        private Dictionary<Type, IData> m_DataDictionary = new Dictionary<Type, IData>();
     #endregion
 
     #region Public or protected method
@@ -76,7 +80,7 @@ namespace TeaProject
             foreach (var kvp in args)
             {
                 Type t = kvp.Item1;
-                if(!t.IsAssignableFrom(typeof(IData)))
+                if(!typeof(IData).IsAssignableFrom(t))
                 {
                     Debug.LogError("使用了错误的参数来初始化数据管理器");
                     throw new ArgumentException($"类型 {t.FullName} 不实现接口 {typeof(IData).FullName}");
@@ -110,27 +114,34 @@ namespace TeaProject
     #region Private method
         IEnumerator ReadJson(string path, IData data)
         {
-            string buffer;
-            path = Application.streamingAssetsPath + path;
-            UnityWebRequest request = new UnityWebRequest(path) { timeout = 2 };
-            yield return request.SendWebRequest();
-            if(request.isDone && request.result == UnityWebRequest.Result.Success)
+            List<System.Object> args = null;
+            path = Application.streamingAssetsPath + "/" + path;
+            using (UnityWebRequest request = UnityWebRequest.Get(path))
             {
-                if(m_DataEncoding == null)
-                    buffer = Encoding.UTF8.GetString(request.downloadHandler.data);
+                yield return request.SendWebRequest();
+                if(request.isDone && request.result == UnityWebRequest.Result.Success)
+                {
+                    string jsonStr;
+                    byte[] buffer = request.downloadHandler.data;
+                    if(m_Decrypt != null) buffer = m_Decrypt(buffer);
+                    if(m_DataEncoding == null)
+                        jsonStr = Encoding.UTF8.GetString(buffer);
+                    else
+                        jsonStr = m_DataEncoding.GetString(buffer);
+                    JsonSerializerOptions options = new JsonSerializerOptions { IncludeFields = true };
+                    args = JsonSerializer.Deserialize<List<System.Object>>(jsonStr, options);
+                }
                 else
-                    buffer = m_DataEncoding.GetString(request.downloadHandler.data);
+                {
+                    Debug.LogError("读取配置文件时发生错误！");
+                    throw new Exception(request.error);
+                }
+                if(args == null)
+                {
+                    Debug.LogError("无法解析json时");
+                }
+                data.Init(args);
             }
-            else
-            {
-                Debug.LogError("读取配置文件时发生错误！");
-                throw new Exception(request.error);
-            }
-            if(Decrypt != null)
-            {
-                buffer = Decrypt(buffer);
-            }
-            data.Init(buffer);
         }
     #endregion
 

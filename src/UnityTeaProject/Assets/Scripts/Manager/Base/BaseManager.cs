@@ -48,7 +48,7 @@ namespace TeaProject.Manager
             {
                 string name = GetName();
                 Debug.LogWarning($"尝试初始化{name}，而{name}已经完成初始化");
-                throw new System.Exception($"重复初始化管理器！Name:[{name}]");
+                throw new System.Exception($"重复初始化管理器[{name}]");
             }
             m_IsReady = true;
             return null;

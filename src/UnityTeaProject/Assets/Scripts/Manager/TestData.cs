@@ -21,14 +21,14 @@ namespace TeaProject
     }
     public class TestData : IData
     {
-        public T Get<T>(int index)
+        public T Get<T>(int index) where T : IData
         {
             throw new System.NotImplementedException();
         }
 
-        public void Init(string json)
+        public void Init(List<object> args)
         {
-
+            throw new System.NotImplementedException();
         }
     }
 }
