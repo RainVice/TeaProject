@@ -28,7 +28,7 @@ namespace TeaProject.Manager
         /// </summary>
         /// <param name="index">数据的索引</param>
         /// <typeparam name="T">数据的类型</typeparam>
-        /// <returns></returns>
-        T Get<T>(int index) where T : class, IData;
+        /// <returns>要获取的数据对象</returns>
+        T Get<T>(int index) where T : class;
     }
 }
