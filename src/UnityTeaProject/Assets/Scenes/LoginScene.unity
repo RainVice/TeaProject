@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 66377215}
   - component: {fileID: 66377214}
   m_Layer: 0
-  m_Name: inputPassword
+  m_Name: InputPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 372965766}
   - component: {fileID: 372965765}
   m_Layer: 0
-  m_Name: textErrorMsg
+  m_Name: TextErrorMsg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 648576052}
   - component: {fileID: 648576051}
   m_Layer: 0
-  m_Name: textTitle
+  m_Name: TextTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1311,7 +1311,7 @@ GameObject:
   - component: {fileID: 1020344709}
   - component: {fileID: 1020344708}
   m_Layer: 0
-  m_Name: btnLogin
+  m_Name: BtnLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 1254763580}
   - component: {fileID: 1254763579}
   m_Layer: 0
-  m_Name: inputUsername
+  m_Name: InputUsername
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2103,7 +2103,7 @@ GameObject:
   - component: {fileID: 1508386645}
   - component: {fileID: 1508386644}
   m_Layer: 0
-  m_Name: btnRegister
+  m_Name: BtnRegister
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2571,8 +2571,6 @@ MonoBehaviour:
   m_inputUsername: {fileID: 1254763579}
   m_inputPassword: {fileID: 66377214}
   m_btnLogin: {fileID: 1020344708}
-  m_textErrorMsg: {fileID: 372965763}
-  m_loadObject: {fileID: 45099323721377704, guid: c2639953970ce06449a21372714c0f19, type: 3}
 --- !u!1 &1835068708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2687,7 @@ GameObject:
   - component: {fileID: 1874090924}
   - component: {fileID: 1874090923}
   m_Layer: 0
-  m_Name: imgBackground
+  m_Name: ImgBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
