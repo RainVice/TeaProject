@@ -66,13 +66,16 @@ namespace TeaProject.UI
                 //if (username == "admin" && password == "Yd@123456")
                 if (true)
                 {
-                    Level level = new Level(1,transform.parent);
-                    level.OnloadEvent += (o) =>
-                    {
-                        
-                    };
-                    
-                    LevelManager.Instance.PushLevel(level);
+                    // Level level = new Level(1,transform.parent);
+                    // level.OnloadEvent += (o) =>
+                    // {
+                    //     
+                    // };
+                    //
+                    // LevelManager.Instance.PushLevel(level);
+
+                    Level level = DataManager.Instance.GetData<TestData>().Get<Level>(1);
+                    Debug.Log(level.GetLevelIndex());
                 }
                 //else
                 //{

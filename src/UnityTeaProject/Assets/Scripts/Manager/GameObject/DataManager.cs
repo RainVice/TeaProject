@@ -56,7 +56,7 @@ namespace TeaProject
     #region Private fields and properties
         private Func<string, string> m_Decrypt;
         private Encoding m_DataEncoding;
-        private Dictionary<Type, IData> m_DataDictionary;
+        private Dictionary<Type, IData> m_DataDictionary = new Dictionary<Type, IData>();
     #endregion
 
     #region Public or protected method
@@ -76,7 +76,7 @@ namespace TeaProject
             foreach (var kvp in args)
             {
                 Type t = kvp.Item1;
-                if(!t.IsAssignableFrom(typeof(IData)))
+                if(!typeof(IData).IsAssignableFrom(t))
                 {
                     Debug.LogError("使用了错误的参数来初始化数据管理器");
                     throw new ArgumentException($"类型 {t.FullName} 不实现接口 {typeof(IData).FullName}");
@@ -113,6 +113,8 @@ namespace TeaProject
             string buffer;
             path = Application.streamingAssetsPath + path;
             UnityWebRequest request = new UnityWebRequest(path) { timeout = 2 };
+            DownloadHandlerBuffer dh = new DownloadHandlerBuffer();
+            request.downloadHandler = dh;
             yield return request.SendWebRequest();
             if(request.isDone && request.result == UnityWebRequest.Result.Success)
             {

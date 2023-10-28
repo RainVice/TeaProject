@@ -6,11 +6,11 @@
 // Description          : 测试文件，待删除
 //**********************************************************************
 
-using System.Runtime.Serialization.Json;
+using System;
 using System.Collections.Generic;
 using TeaProject.Manager;
+using System.Text.Json;
 using UnityEngine;
-using System.IO;
 
 namespace TeaProject
 {
@@ -19,16 +19,29 @@ namespace TeaProject
         public int Number;
         public string Description { get; set; }
     }
+
     public class TestData : IData
     {
-        public T Get<T>(int index)
+        private List<Level> m_levels;
+
+        public T Get<T>(int index) where T : class
         {
-            throw new System.NotImplementedException();
+            if (typeof(T) == typeof(Level))
+            {
+                return m_levels[index] as T;
+            }
+            throw new AggregateException($"参数类型应兼容 {typeof(Level).FullName}");
         }
 
         public void Init(string json)
         {
-
+            Debug.Log(json);
+            List<Level> deserialize = JsonSerializer.Deserialize<List<Level>>(json);
+            m_levels = deserialize;
+            foreach (Level level in m_levels)
+            {
+                Debug.Log(level.GetLevelIndex());
+            }
         }
     }
 }

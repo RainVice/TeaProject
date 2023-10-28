@@ -44,13 +44,13 @@ namespace TeaProject.Manager
             // 此处初始化所有的管理器
             yield return DataManager.Instance.Init(new List<Tuple<Type, string>>
             {
-
+                new Tuple<Type, string>(typeof(TestData), "/Define/TeaProject.Level.txt")
             });
             yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
             {
                 new Tuple<Type, string>(typeof(UILoadView),"Prefabs/UI/panleLoading")
             });
-            //yield return LevelManager.Instance.Init();
+            yield return LevelManager.Instance.Init(DataManager.Instance.GetData<TestData>().Get<Level>(0));
             // ***********************************
             base.IsReady = true;
             yield return null;

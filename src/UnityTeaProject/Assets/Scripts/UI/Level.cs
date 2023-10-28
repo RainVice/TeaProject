@@ -21,17 +21,32 @@ namespace TeaProject
     {
 
         #region  Public fields and properties
-
+        
         public event Action<AsyncOperation> OnloadEvent;
 
+        public int mIndex;
+
+        public int mNextIndex;
+
         #endregion
-        
-        #region Private fields and properties
+
+        #region  Private fields and properties
         private int m_index;
         private int m_nextIndex;
         #endregion
+        
 
         #region Public or protected method
+
+
+        /// <summary>
+        /// 无参构造方法
+        /// </summary>
+        public Level()
+        {
+            
+        }
+        
 
         /// <summary>
         /// 需要跳转场景时使用
@@ -45,8 +60,7 @@ namespace TeaProject
             m_nextIndex = mNextIndex;
             if (parent != null)
             {
-                UILoadView uiLoadView = UIManager.Instance.Show<UILoadView>(parent);
-                uiLoadView.setLevel(this);
+                UIManager.Instance.Show<UILoadView>(parent);
             }
         }
 
