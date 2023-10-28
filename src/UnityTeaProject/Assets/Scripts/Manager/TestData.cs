@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using TeaProject.Manager;
 using UnityEngine;
 using System.IO;
+using log4net.Core;
 
 namespace TeaProject
 {
@@ -21,14 +22,16 @@ namespace TeaProject
     }
     public class TestData : IData
     {
-
-        public void Init(List<object> args)
+        List<Level> list;
+        public T Get<T>(int index) where T : class
         {
+            return list[index] as T;
             throw new System.NotImplementedException();
         }
 
-        T IData.Get<T>(int index)
+        public void Init(string json)
         {
+            list = TeaProject.Utility.TeaProjectUtility.Deserialize<List<Level>>(json);
             throw new System.NotImplementedException();
         }
     }

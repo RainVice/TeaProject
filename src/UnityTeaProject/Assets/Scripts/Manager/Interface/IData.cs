@@ -19,10 +19,10 @@ namespace TeaProject.Manager
     public interface IData
     {
         /// <summary>
-        /// 初始化数据类，此方法在实现时不应该依赖任何实例对象数据。
+        /// 初始化数据类
         /// </summary>
-        /// <param name="json">序列化的Json文本流</param>
-        void Init(List<System.Object> args); 
+        /// <param name="json">序列化的Json字符串</param>
+        void Init(string json); 
         /// <summary>
         /// 获取指定类型的数据
         /// </summary>

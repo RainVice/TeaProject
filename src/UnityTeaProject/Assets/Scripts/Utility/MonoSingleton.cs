@@ -9,7 +9,7 @@
 using UnityEngine;
 using System;
 
-namespace TeaProject
+namespace TeaProject.Utility
 {
     /// <summary>
     /// 单例MonoBehaviour基类

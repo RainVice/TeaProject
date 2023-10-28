@@ -114,7 +114,6 @@ namespace TeaProject
     #region Private method
         IEnumerator ReadJson(string path, IData data)
         {
-            List<System.Object> args = null;
             path = Application.streamingAssetsPath + "/" + path;
             using (UnityWebRequest request = UnityWebRequest.Get(path))
             {
@@ -128,15 +127,13 @@ namespace TeaProject
                         jsonStr = Encoding.UTF8.GetString(buffer);
                     else
                         jsonStr = m_DataEncoding.GetString(buffer);
-                    JsonSerializerOptions options = new JsonSerializerOptions { IncludeFields = true };
-                    args = JsonSerializer.Deserialize<List<System.Object>>(jsonStr, options);
+                    data.Init(jsonStr);
                 }
                 else
                 {
                     Debug.LogError("读取配置文件时发生错误！");
                     throw new Exception(request.error);
                 }
-                data.Init(args);
             }
         }
     #endregion
