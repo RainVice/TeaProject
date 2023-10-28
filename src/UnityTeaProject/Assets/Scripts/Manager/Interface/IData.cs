@@ -9,7 +9,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 
 namespace TeaProject.Manager
@@ -23,14 +22,13 @@ namespace TeaProject.Manager
         /// 初始化数据类，此方法在实现时不应该依赖任何实例对象数据。
         /// </summary>
         /// <param name="json">序列化的Json文本流</param>
-        void Init(string json);
-
+        void Init(List<System.Object> args); 
         /// <summary>
         /// 获取指定类型的数据
         /// </summary>
         /// <param name="index">数据的索引</param>
         /// <typeparam name="T">数据的类型</typeparam>
         /// <returns></returns>
-        T Get<T>(int index) where T : class;
+        T Get<T>(int index) where T : IData;
     }
 }

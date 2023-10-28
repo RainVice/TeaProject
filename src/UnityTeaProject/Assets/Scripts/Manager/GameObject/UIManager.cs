@@ -27,7 +27,7 @@ namespace TeaProject.Manager
 
     #region Public or protected method
         /// <summary>
-        /// 初始化UI管理器
+        /// 初始化UI管理器，此方法接受一个 List(Tuple(Type, string)) 类型数据
         /// </summary>
         public override IEnumerator Init(object arg = null)
         {
@@ -36,7 +36,7 @@ namespace TeaProject.Manager
             if(list == null)
             {
                 Debug.LogError("使用了错误的参数来初始化UI管理器");
-                throw new ArgumentException("参数类型应兼容 List<Tuple<Type, string>> "); 
+                throw new ArgumentException("参数类型应兼容 List(Tuple(Type, string)) "); 
             } 
             foreach (Tuple<Type, string> tuple in list)
             {
