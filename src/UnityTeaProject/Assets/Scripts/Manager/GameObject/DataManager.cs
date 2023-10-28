@@ -136,10 +136,6 @@ namespace TeaProject
                     Debug.LogError("读取配置文件时发生错误！");
                     throw new Exception(request.error);
                 }
-                if(args == null)
-                {
-                    Debug.LogError("无法解析json时");
-                }
                 data.Init(args);
             }
         }

@@ -21,12 +21,13 @@ namespace TeaProject
     }
     public class TestData : IData
     {
-        public T Get<T>(int index) where T : IData
+
+        public void Init(List<object> args)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Init(List<object> args)
+        T IData.Get<T>(int index)
         {
             throw new System.NotImplementedException();
         }
