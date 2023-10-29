@@ -46,7 +46,7 @@ namespace TeaProject.UI
         /// <summary>
         /// 初始化控件事件
         /// </summary>
-        protected void InitEventListener()
+        private void InitEventListener()
         {
             m_btnLogin.onClick.AddListener(() =>
             {

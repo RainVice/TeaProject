@@ -18,7 +18,7 @@ namespace TeaProject
     /// <summary>
     /// 保存场景信息，跳转伪加载
     /// </summary>
-    public abstract class Level : ILevel
+    public class Level : ILevel
     {
 
         #region  Public fields and properties
