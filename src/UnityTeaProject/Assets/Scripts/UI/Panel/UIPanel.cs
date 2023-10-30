@@ -6,12 +6,15 @@
 // Description          : UI面板基类
 //**********************************************************************
 
+using System;
+using UnityEngine;
+
 namespace TeaProject.UI
 {
     /// <summary>
     /// UI面板基类
     /// </summary>
-    public class UIPanel : UIMonoBehaviour
+    public class UIPanel : MonoBehaviour
     {
         #region Public or protected fields and properties
 
@@ -22,6 +25,14 @@ namespace TeaProject.UI
         #endregion
 
         #region Unity Callback
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                // todo 显示设置面板
+            }
+        }
 
         #endregion
 
