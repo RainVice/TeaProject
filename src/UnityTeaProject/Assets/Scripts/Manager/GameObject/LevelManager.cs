@@ -2,7 +2,7 @@
 // Script Name          : LevelManager.cs
 // Author Name          : 刘坤
 // Create Time          : 2023/10/19
-// Last Modified Time   : 2023/10/19
+// Last Modified Time   : 2023/10/30
 // Description          : 编写关卡管理器类
 //**********************************************************************
 
@@ -60,34 +60,31 @@ namespace TeaProject.Manager
         /// </summary>
         public void LoadNextLevel()
         {
-            ILevel current = m_Levels.Peek();
-            ILevel next = current.GetNextLevel();
-            if(next == null)
+            ILevel end = m_Levels.Peek();
+            ILevel begin = end.GetNextLevel();
+            if(begin == null)
             {
                 Debug.LogWarning("当前活动关卡无后继场景！");
                 return;
             }
-            StartCoroutine(LoadLevelAsync(next));
-            m_Levels.Push(next);
-            current.End();
-            next.Begin();
+            m_Levels.Push(begin);
+            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
         }
 
         /// <summary>
         /// 加载一个新关卡
         /// </summary>
         /// <param name="level">要加载的关卡</param>
-        public void PushLevel(ILevel level)
+        public void PushLevel(ILevel begin)
         {
-            if(level == null)
+            if(begin == null)
             {
                 Debug.LogError("要加载的关卡为空！");
                 throw new ArgumentNullException();
             }
-            StartCoroutine(LoadLevelAsync(level));
-            m_Levels.Peek().End();
-            m_Levels.Push(level);
-            level.Begin();
+            ILevel end = m_Levels.Peek();
+            m_Levels.Push(begin);
+            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
         }
 
         /// <summary>
@@ -97,47 +94,45 @@ namespace TeaProject.Manager
         {
             if(m_Levels.Count == 1)
             {
-                Debug.LogError("当前关卡是关卡管理器中最后一个场景，无法弹出！");
+                Debug.LogError("当前关卡是关卡管理器中最后一个场景，无法回退！");
                 return;
             }
-            ILevel popLevel = m_Levels.Pop();
-            ILevel current = m_Levels.Peek();
-            StartCoroutine(LoadLevelAsync(current));
-            popLevel.End();
-            current.Begin();
+            ILevel end = m_Levels.Pop();
+            ILevel begin = m_Levels.Peek();
+            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
         }
 
-        /// <summary>
-        /// 回到指定的关卡
-        /// </summary>
-        /// <param name="level"></param>
-        /// <returns>如果给定的场景在关卡栈中，则会回到指定的关卡并返回 true；如果不在关卡栈中，则不会加载关卡并返回 false</returns>
-        public bool PopTo(ILevel level)
-        {
-            Stack<ILevel> st = new Stack<ILevel>();
-            while(m_Levels.Count > 0 && !m_Levels.Peek().Equals(level))
-            {
-                st.Push(m_Levels.Pop());
-            }
+        // /// <summary>
+        // /// 回到指定的关卡
+        // /// </summary>
+        // /// <param name="level"></param>
+        // /// <returns>如果给定的场景在关卡栈中，则会回到指定的关卡并返回 true；如果不在关卡栈中，则不会加载关卡并返回 false</returns>
+        // public bool PopTo(ILevel level)
+        // {
+        //     Stack<ILevel> st = new Stack<ILevel>();
+        //     while(m_Levels.Count > 0 && !m_Levels.Peek().Equals(level))
+        //     {
+        //         st.Push(m_Levels.Pop());
+        //     }
             
-            if(m_Levels.Count == 0)
-            {
-                while(st.Count > 0)
-                {
-                    m_Levels.Push(st.Pop());
-                }
-                return false;
-            }
-            else
-            {
-                StartCoroutine(LoadLevelAsync(m_Levels.Peek()));
-                return true;
-            }
-        }
+        //     if(m_Levels.Count == 0)
+        //     {
+        //         while(st.Count > 0)
+        //         {
+        //             m_Levels.Push(st.Pop());
+        //         }
+        //         return false;
+        //     }
+        //     else
+        //     {
+        //         StartCoroutine(LoadLevelAsync(m_Levels.Peek()));
+        //         return true;
+        //     }
+        // }
     #endregion
 
     #region Private method
-        private IEnumerator LoadLevelAsync(ILevel level)
+        private IEnumerator LoadLevelAsync(ILevel level, Action begin, Action end)
         {
             int index = level.GetLevelIndex();
             if(index < 0 || index >= SceneManager.sceneCountInBuildSettings)
@@ -145,6 +140,7 @@ namespace TeaProject.Manager
                 Debug.LogError("要加载的场景索引不存在！");
                 throw new ArgumentException("关卡的索引不存在");
             }
+            end();
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
             while (!asyncLoad.isDone)
             {
@@ -152,8 +148,9 @@ namespace TeaProject.Manager
                 yield return null;
             }
             level.OnLoad(asyncLoad);
+            begin();
         }
     #endregion
-
+    
     }
 }
