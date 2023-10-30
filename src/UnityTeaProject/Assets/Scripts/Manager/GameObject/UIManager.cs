@@ -2,7 +2,7 @@
 // Script Name          : UIManager.cs
 // Author Name          : 刘坤
 // Create Time          : 2023/10/20
-// Last Modified Time   : 2023/10/23
+// Last Modified Time   : 2023/10/30
 // Description          : 编写UI管理器类
 //**********************************************************************
 
@@ -66,7 +66,7 @@ namespace TeaProject.Manager
             if(m_CachePool.TryGetValue(type, out queue) && queue.Count > 0)
             {
                 res = queue.Dequeue() as T;
-                res.transform.SetParent(null);
+                res.transform.SetParent(parent);
                 res.gameObject.SetActive(true);
                 return res;
             }
@@ -82,7 +82,7 @@ namespace TeaProject.Manager
                 res = obj.GetComponent<T>();
                 if(res is null)
                 {
-                    Debug.LogError($"预制体上没有挂载的指定的组件[{typeof(T).GetType().Name}]!请检查预制体是否正确配置!");
+                    Debug.LogError($"预制体上没有挂载的指定的组件[{type.Name}]!请检查预制体是否正确配置!");
                     return null;
                 }
                 res.OnShow();
