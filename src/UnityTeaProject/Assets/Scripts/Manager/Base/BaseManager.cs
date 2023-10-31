@@ -52,7 +52,7 @@ namespace TeaProject.Manager
                 throw new System.Exception($"重复初始化管理器[{name}]");
             }
             m_IsReady = true;
-            return null;
+            yield return null;
         }
 
         /// <summary>
