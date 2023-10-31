@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Setting
+  - Panel
+  - Audio
+  - Canvas
+  - pos1
+  - pos2
+  - pos3
+  - pos4
+  - pos5
+  - Test02
+  - Camera
   layers:
   - Default
   - TransparentFX

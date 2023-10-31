@@ -48,7 +48,8 @@ namespace TeaProject.Manager
             });
             yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
             {
-                new Tuple<Type, string>(typeof(UILoadingPage),"Prefabs/UI/panleLoading")
+                new Tuple<Type, string>(typeof(UILoadingPage),"Prefabs/UI/panleLoading"),
+                new Tuple<Type, string>(typeof(UISetPanel),"Prefabs/UI/SettingPanel")
             });
             yield return LevelManager.Instance.Init(
                 DataManager.Instance.GetData<LevelData>().Get<Level>(0));
