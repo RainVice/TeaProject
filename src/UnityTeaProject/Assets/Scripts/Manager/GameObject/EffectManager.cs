@@ -7,6 +7,8 @@
 //**********************************************************************
 
 using System.Collections;
+using System.Collections.Generic;
+using TeaProject.Effect;
 using UnityEngine;
 
 namespace TeaProject.Manager
@@ -25,22 +27,48 @@ namespace TeaProject.Manager
     #endregion
 
     #region Private fields and properties
-        
+        private HashSet<EffectSet> m_ActiveEffects = new HashSet<EffectSet>();
+        private List<EffectSet> m_DeleteList = new List<EffectSet>();
     #endregion
 
     #region Unity Callback
-        private void Update()
+        private void LateUpdate()
         {
-            
+            foreach(EffectSet effectSet in m_ActiveEffects)
+            {
+                effectSet.Execute();
+                if(effectSet.IsDone)
+                    m_DeleteList.Add(effectSet);
+            }
+            foreach (EffectSet delete in m_DeleteList)
+            {
+                if(m_ActiveEffects.Contains(delete))
+                    m_ActiveEffects.Remove(delete);
+            }
+            m_DeleteList.Clear();
         }
     #endregion
 
     #region Public or protected method
-            
-    #endregion
-
-    #region Private method
-        
+        /// <summary>
+        /// 开始执行一个特效集
+        /// </summary>
+        /// <param name="effectSet">要执行的特效集</param>
+        public void ExecuteEffect(EffectSet effectSet)
+        {
+            m_ActiveEffects.Add(effectSet);
+        }
+        /// <summary>
+        /// 停止执行一个特效集
+        /// </summary>
+        /// <param name="effectSet"></param>
+        public void StopEffectSet(EffectSet effectSet)
+        {
+            if(m_ActiveEffects.Contains(effectSet))
+                Debug.LogWarning("尝试停止一个特效集，然而此特效集并未执行。");
+            else
+                m_DeleteList.Add(effectSet);
+        }
     #endregion
 
     }

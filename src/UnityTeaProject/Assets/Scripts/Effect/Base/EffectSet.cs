@@ -18,6 +18,25 @@ namespace TeaProject.Effect
     public class EffectSet
     {
 
+    #region Public or protected fields and properties
+        /// <summary>
+        /// 指示特效集是否完成的内部变量
+        /// </summary>
+        protected bool m_IsDone; 
+
+        /// <summary>
+        /// 指示此特效集是否已经完成
+        /// </summary>
+        /// <value>如果为 true，则此特效集被视为完成；如果为 false，则此特效集被视为未完成</value>
+        public bool IsDone
+        {
+            get
+            {
+                return m_IsDone;
+            }
+        } 
+    #endregion
+
     #region Private fields and properties
         Dictionary<EffectType, BaseEffect> m_EffectDictionary = new Dictionary<EffectType, BaseEffect>();
     #endregion
@@ -44,9 +63,12 @@ namespace TeaProject.Effect
         /// </summary>
         public void Execute()
         {
+            m_IsDone = true;
             foreach (var kvp in m_EffectDictionary)
             {
-                kvp.Value.Do();
+                if(!kvp.Value.IsDone)
+                    kvp.Value.Do();
+                m_IsDone = m_IsDone && kvp.Value.IsDone;
             }
         }
     #endregion
