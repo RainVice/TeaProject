@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TeaProject.Data;
 using TeaProject.UI;
+using UnityEngine;
 
 namespace TeaProject.Manager
 {
@@ -44,7 +45,10 @@ namespace TeaProject.Manager
             // 此处初始化所有的管理器
             yield return DataManager.Instance.Init(new List<Tuple<Type, string>>
             {
-                new Tuple<Type, string>(typeof(LevelData), "Define/TeaProject.Level.txt")
+                new Tuple<Type, string>(typeof(LevelData), "Define/TeaProject.Level.txt"),
+                new Tuple<Type, string>(typeof(TeaInfoData), "Define/TeaProject.TeaInfo.txt"),
+                new Tuple<Type, string>(typeof(StepInfoData), "Define/TeaProject.StepInfo.txt"),
+                
             });
             yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
             {

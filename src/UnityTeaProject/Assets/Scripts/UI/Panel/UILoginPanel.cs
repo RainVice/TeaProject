@@ -16,7 +16,7 @@ namespace TeaProject.UI
     /// <summary>
     /// 此类用于控制登录界面的UI控件逻辑
     /// </summary>
-    public class UILoginPanel : MonoBehaviour
+    public class UILoginPanel : UIPanel
     {
         #region Private fields and properties
 
@@ -54,9 +54,7 @@ namespace TeaProject.UI
                 string password = m_inputPassword.text;
                 if (true)
                 {
-                    Level level = DataManager.Instance.GetData<LevelData>()
-                        .Get<Level>(1).ShowLoadingPage(transform.parent);
-                    LevelManager.Instance.PushLevel(level);
+                    LevelManager.Instance.LoadNextLevel();
                 }
                 else
                 {

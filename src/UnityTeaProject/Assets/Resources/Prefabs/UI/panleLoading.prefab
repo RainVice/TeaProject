@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7379035773429275602}
   - component: {fileID: 4968116190628273756}
   m_Layer: 0
-  m_Name: PanleLoading
+  m_Name: panleLoading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_background: {fileID: 4170849175085887722}
+  m_progressBar: {fileID: 7537303287337601003}
 --- !u!1 &3782546484059169512
 GameObject:
   m_ObjectHideFlags: 0
