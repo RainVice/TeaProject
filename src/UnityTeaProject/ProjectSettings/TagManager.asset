@@ -15,6 +15,10 @@ TagManager:
   - pos5
   - Test02
   - Camera
+  - MainCanvas
+  - introduce
+  - practice
+  - examine
   layers:
   - Default
   - TransparentFX

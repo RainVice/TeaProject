@@ -34,6 +34,8 @@ namespace TeaProject
 
         //下一个场景索引
         public int NextIndex;
+
+        
         
         #endregion
         
