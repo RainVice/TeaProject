@@ -42,16 +42,16 @@ namespace TeaProject.Manager
             yield return null;
             // ***********************************
             // 此处初始化所有的管理器
-            yield return DataManager.Instance.Init(new List<Tuple<Type, string>>
-            {
-                new Tuple<Type, string>(typeof(LevelData), "Define/TeaProject.Level.txt")
-            });
-            yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
-            {
-                new Tuple<Type, string>(typeof(UILoadingPage),"Prefabs/UI/panleLoading")
-            });
-            yield return LevelManager.Instance.Init(
-                DataManager.Instance.GetData<LevelData>().Get<Level>(0));
+            // yield return DataManager.Instance.Init(new List<Tuple<Type, string>>
+            // {
+            //     new Tuple<Type, string>(typeof(LevelData), "Define/TeaProject.Level.txt")
+            // });
+            // yield return UIManager.Instance.Init(new List<Tuple<Type, string>>
+            // {
+            //     new Tuple<Type, string>(typeof(UILoadingPage),"Prefabs/UI/panleLoading")
+            // });
+            // yield return LevelManager.Instance.Init(DataManager.Instance.GetData<LevelData>().Get<Level>(0));
+            yield return EffectManager.Instance.Init();
             // ***********************************
             base.IsReady = true;
             yield return null;

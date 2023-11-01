@@ -58,10 +58,16 @@ namespace TeaProject.Manager
         {
             m_ActiveEffects.Add(effectSet);
         }
-
+        /// <summary>
+        /// 停止执行一个特效集
+        /// </summary>
+        /// <param name="effectSet"></param>
         public void StopEffectSet(EffectSet effectSet)
         {
-            m_DeleteList.Add(effectSet);
+            if(m_ActiveEffects.Contains(effectSet))
+                Debug.LogWarning("尝试停止一个特效集，然而此特效集并未执行。");
+            else
+                m_DeleteList.Add(effectSet);
         }
     #endregion
 
