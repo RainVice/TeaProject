@@ -2,7 +2,7 @@
 // Script Name          : LevelManager.cs
 // Author Name          : 刘坤
 // Create Time          : 2023/10/19
-// Last Modified Time   : 2023/10/30
+// Last Modified Time   : 2023/11/02
 // Description          : 编写关卡管理器类
 //**********************************************************************
 
@@ -24,7 +24,7 @@ namespace TeaProject.Manager
         /// <summary>
         /// 当前正在活动中的关卡
         /// </summary>
-        public ILevel CurrentLevel
+        public BaseLevel CurrentLevel
         {
             get
             {
@@ -34,7 +34,7 @@ namespace TeaProject.Manager
     #endregion
 
     #region Private fields and properties
-        private Stack<ILevel> m_Levels = new Stack<ILevel>();
+        private Stack<BaseLevel> m_Levels = new Stack<BaseLevel>();
     #endregion
 
     #region Public or protected method
@@ -45,7 +45,7 @@ namespace TeaProject.Manager
         public override IEnumerator Init(System.Object startLevel)
         {
             yield return base.Init();
-            ILevel level = startLevel as ILevel;
+            BaseLevel level = startLevel as BaseLevel;
             if(level == null)
             {
                 Debug.LogError("使用了错误的参数来初始化关卡管理器");
@@ -60,31 +60,31 @@ namespace TeaProject.Manager
         /// </summary>
         public void LoadNextLevel()
         {
-            ILevel end = m_Levels.Peek();
-            ILevel begin = end.GetNextLevel();
+            BaseLevel end = m_Levels.Peek();
+            BaseLevel begin = end.GetNextLevel();
             if(begin == null)
             {
                 Debug.LogWarning("当前活动关卡无后继场景！");
                 return;
             }
             m_Levels.Push(begin);
-            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
+            StartCoroutine(LoadLevelAsync(begin, begin.OnBegin, end.OnEnd));
         }
 
         /// <summary>
         /// 加载一个新关卡
         /// </summary>
         /// <param name="level">要加载的关卡</param>
-        public void PushLevel(ILevel begin)
+        public void PushLevel(BaseLevel begin)
         {
             if(begin == null)
             {
                 Debug.LogError("要加载的关卡为空！");
                 throw new ArgumentNullException();
             }
-            ILevel end = m_Levels.Peek();
+            BaseLevel end = m_Levels.Peek();
             m_Levels.Push(begin);
-            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
+            StartCoroutine(LoadLevelAsync(begin, begin.OnBegin, end.OnEnd));
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace TeaProject.Manager
                 Debug.LogError("当前关卡是关卡管理器中最后一个场景，无法回退！");
                 return;
             }
-            ILevel end = m_Levels.Pop();
-            ILevel begin = m_Levels.Peek();
-            StartCoroutine(LoadLevelAsync(begin, begin.Begin, end.End));
+            BaseLevel end = m_Levels.Pop();
+            BaseLevel begin = m_Levels.Peek();
+            StartCoroutine(LoadLevelAsync(begin, begin.OnBegin, end.OnEnd));
         }
 
         // /// <summary>
@@ -114,7 +114,6 @@ namespace TeaProject.Manager
         //     {
         //         st.Push(m_Levels.Pop());
         //     }
-            
         //     if(m_Levels.Count == 0)
         //     {
         //         while(st.Count > 0)
@@ -132,9 +131,9 @@ namespace TeaProject.Manager
     #endregion
 
     #region Private method
-        private IEnumerator LoadLevelAsync(ILevel level, Action begin, Action end)
+        private IEnumerator LoadLevelAsync(BaseLevel level, Action begin, Action end)
         {
-            int index = level.GetLevelIndex();
+            int index = level.Index;
             if(index < 0 || index >= SceneManager.sceneCountInBuildSettings)
             {
                 Debug.LogError("要加载的场景索引不存在！");
@@ -144,10 +143,10 @@ namespace TeaProject.Manager
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(index);
             while (!asyncLoad.isDone)
             {
-                level.OnLoad(asyncLoad);
+                level.OnLoad(asyncLoad.progress);
                 yield return null;
             }
-            level.OnLoad(asyncLoad);
+            level.OnLoad(asyncLoad.progress);
             begin();
         }
     #endregion
