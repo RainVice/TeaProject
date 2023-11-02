@@ -51,7 +51,7 @@ namespace TeaProject.Manager
             //     new Tuple<Type, string>(typeof(UILoadingPage),"Prefabs/UI/panleLoading")
             // });
             // yield return LevelManager.Instance.Init(DataManager.Instance.GetData<LevelData>().Get<Level>(0));
-            yield return EffectManager.Instance.Init();
+            // yield return EffectManager.Instance.Init();
             // ***********************************
             base.IsReady = true;
             yield return null;
