@@ -9,6 +9,7 @@
 using TeaProject.UI;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TeaProject.Menu
 {
@@ -20,13 +21,18 @@ namespace TeaProject.Menu
 
 
         #region Public or protected method
-
+        /// <summary>
+        /// 创建左侧面板
+        /// </summary>
         [MenuItem("GameObject/Tea/LeftPanel",false,0)]
         static void CreateLeftPanel()
         {
             CreateSidePanel("LeftPanel",true);
 
         }
+        /// <summary>
+        /// 创建右侧面板
+        /// </summary>
         [MenuItem("GameObject/Tea/RightPlan",false,0)]
         static void CreateRightPanel()
         {
@@ -34,18 +40,57 @@ namespace TeaProject.Menu
             UISidePanel uiSidePanel = rightPanel.GetComponent<UISidePanel>();
             uiSidePanel.IsLift = false;
         }
+        /// <summary>
+        /// 创建侧边按钮Group
+        /// </summary>
+        [MenuItem("GameObject/Tea/SideBtnGroup",false,0)]
+        static void CreateSideBtnGroup()
+        {
+            string[] prefab = AssetDatabase.FindAssets("SideBtnGroup t:Prefab");
+            foreach (string s in prefab)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(s);
+                GameObject perfab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
+                GameObject obj = Instantiate(perfab, Selection.activeGameObject.transform);
+                obj.name = "SideBtnGroup";
+            }
+        }
+        ///
+        /// <summary>
+        /// 创建侧边按钮
+        /// </summary>
+        [MenuItem("GameObject/Tea/SideBtnItem",false,0)]
+        static void CreateSideBtnItem()
+        {
+            string[] prefab = AssetDatabase.FindAssets("SideBtnItem t:Prefab");
+            foreach (string s in prefab)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(s);
+                GameObject perfab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
+                GameObject obj = Instantiate(perfab, Selection.activeGameObject.transform);
+                obj.GetComponent<Toggle>().group = obj.GetComponentInParent<ToggleGroup>();
+                obj.name = "SideBtnItem";
+            }
+        }
+        
+        /// <summary>
+        /// 创建侧边面板
+        /// </summary>
+        /// <param name="name">面板名</param>
+        /// <param name="isLeft">是否左边</param>
+        /// <returns></returns>
         static GameObject CreateSidePanel(string name,bool isLeft)
         {
             string[] prefab = AssetDatabase.FindAssets("SidePanel t:Prefab");
             foreach (string s in prefab)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(s);
-                GameObject gmobj = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
-                GameObject obj = Instantiate(gmobj, Selection.activeGameObject.transform);
+                GameObject perfab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
+                GameObject obj = Instantiate(perfab, Selection.activeGameObject.transform);
                 obj.name = name;
                 Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
                 RectTransform rectTransform = obj.GetComponent<RectTransform>();
-                rectTransform.anchoredPosition = new Vector2(isLeft?-147:2067, 0);
+                rectTransform.anchoredPosition = new Vector2(isLeft?-100:2020, 60);
                 return obj;
             }
             return null;

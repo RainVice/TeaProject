@@ -3,14 +3,12 @@
 // Author Name          : 欧阳晨昊
 // Create Time          : 2023年10月31日
 // Last Modified Time   : 2023年10月31日
-// Description          : 文件描述（可选）
+// Description          : 茶叶信息管理
 //**********************************************************************
 
 using System.Collections.Generic;
-using System.IO;
 using TeaProject.Manager;
 using TeaProject.Utility;
-using UnityEngine;
 
 namespace TeaProject.Data
 {

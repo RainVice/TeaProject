@@ -2,11 +2,10 @@
 // Script Name          : UILoadView.cs
 // Author Name          : 欧阳晨昊
 // Create Time          : 2023/10/21
-// Last Modified Time   : 2023/10/27
+// Last Modified Time   : 2023/11/02
 // Description          : 场景通用加载动画
 //**********************************************************************
 
-using System;
 using TeaProject.Manager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,18 +48,7 @@ namespace TeaProject.UI
         {
             if (LevelManager.Instance.CurrentLevel is Level currentLevel)
             {
-                currentLevel.OnloadEvent += operation =>
-                {
-                    m_currentTime += Time.deltaTime;
-                    if (m_currentTime / m_totalTime < 0.95f)
-                    {
-                        m_progressBar.value = m_currentTime / m_totalTime;
-                    }
-                    else
-                    {
-                        operation.allowSceneActivation = true;
-                    }
-                };
+                currentLevel.OnLoad += f => m_progressBar.value = f;
             }
         }
     }

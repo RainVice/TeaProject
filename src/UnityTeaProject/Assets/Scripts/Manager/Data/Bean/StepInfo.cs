@@ -3,15 +3,13 @@
 // Author Name          : 欧阳晨昊
 // Create Time          : 2023年10月31日
 // Last Modified Time   : 2023年10月31日
-// Description          : 文件描述（可选）
+// Description          : 制作茶叶步骤信息
 //**********************************************************************
-
-using UnityEngine;
 
 namespace TeaProject
 {
     /// <summary>
-    /// 请修改类描述。
+    /// 制作茶叶步骤信息
     /// </summary>
     public class StepInfo
     {
