@@ -9,6 +9,8 @@
 using UnityEngine;
 using System;
 using System.Text.Json;
+using TeaProject.Manager;
+using TeaProject.UI;
 
 namespace TeaProject.Utility
 {
@@ -37,6 +39,7 @@ namespace TeaProject.Utility
 
     #region Private fields and properties
         private static JsonSerializerOptions m_DeserializerOptions = new JsonSerializerOptions { IncludeFields = true };
+        private static UILoadingPage m_uiLoadingPage;
     #endregion
 
     #region Public or protected method
@@ -58,6 +61,15 @@ namespace TeaProject.Utility
                 Debug.LogError($"反序列化Json字符串时出现错误！");
                 throw ex;
             }
+        }
+
+        public static void ShowLoadingPage()
+        {
+            m_uiLoadingPage = UIManager.Instance.Show<UILoadingPage>();
+        }
+        public static void CloseLoadingPage()
+        {
+            UIManager.Instance.Close(m_uiLoadingPage);
         }
     #endregion
 

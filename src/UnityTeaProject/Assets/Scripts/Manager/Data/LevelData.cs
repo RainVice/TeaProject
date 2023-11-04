@@ -36,6 +36,16 @@ namespace TeaProject.Data
         {
             return m_level[index] as T;
         }
+
+
+        /// <summary>
+        /// 获取Level列表
+        /// </summary>
+        /// <returns></returns>
+        public List<Level> GetList()
+        {
+            return m_level;
+        }
         #endregion
     }
 }

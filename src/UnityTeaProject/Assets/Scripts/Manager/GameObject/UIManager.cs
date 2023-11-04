@@ -20,9 +20,22 @@ namespace TeaProject.Manager
     public class UIManager : BaseManager<UIManager>
     {
 
+        #region Public fields and properties
+
+        public Canvas MainCanvas 
+        {
+            get
+            {
+                return m_MainCanvas;
+            } 
+        }
+
+        #endregion
+        
     #region Private fields and properties
         private Dictionary<Type, string> m_UIResources = new Dictionary<Type, string>();
         private Dictionary<Type, Queue<UIMonoBehaviour>> m_CachePool = new Dictionary<Type, Queue<UIMonoBehaviour>>();
+        private Canvas m_MainCanvas;
     #endregion
 
     #region Public or protected method
@@ -51,13 +64,15 @@ namespace TeaProject.Manager
                     m_UIResources.Add(type, str);
                 }
             }
+
+            m_MainCanvas = transform.GetComponentInChildren<Canvas>();
         }
         
         /// <summary>
         /// 创建一个指定类型的UI，并返回其实例。
         /// </summary>
         /// <typeparam name="T">要创建的UI的类型</typeparam>
-        public T Show<T>(Transform parent = null) where T : UIMonoBehaviour
+        public T Show<T>() where T : UIMonoBehaviour
         {
             Type type = typeof(T);
             string path;
@@ -66,7 +81,7 @@ namespace TeaProject.Manager
             if(m_CachePool.TryGetValue(type, out queue) && queue.Count > 0)
             {
                 res = queue.Dequeue() as T;
-                res.transform.SetParent(parent);
+                res.transform.SetParent(m_MainCanvas.transform);
                 res.gameObject.SetActive(true);
                 return res;
             }
@@ -78,7 +93,7 @@ namespace TeaProject.Manager
                     Debug.LogError($"指定的类型[{type.Name}]在Resources下找不到预制体文件!请检查注册时的路径!");
                     return null;
                 }
-                GameObject obj = (GameObject)Instantiate(prefab, parent);
+                GameObject obj = (GameObject)Instantiate(prefab, m_MainCanvas.transform);
                 res = obj.GetComponent<T>();
                 if(res is null)
                 {
