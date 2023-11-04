@@ -68,8 +68,4 @@ namespace TeaProject.UI
         #endregion
     }
 
-
-
-
-
 }

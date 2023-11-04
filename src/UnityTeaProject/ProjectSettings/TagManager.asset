@@ -8,17 +8,12 @@ TagManager:
   - Panel
   - Audio
   - Canvas
-  - pos1
-  - pos2
-  - pos3
-  - pos4
-  - pos5
   - Test02
   - Camera
   - MainCanvas
   - introduce
-  - practice
   - examine
+  - point
   layers:
   - Default
   - TransparentFX

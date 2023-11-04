@@ -66,7 +66,8 @@ namespace TeaProject.Effect
             m_IsDone = true;
             foreach (var kvp in m_EffectDictionary)
             {
-                kvp.Value.Do();
+                if(!kvp.Value.IsDone)
+                    kvp.Value.Do();
                 m_IsDone = m_IsDone && kvp.Value.IsDone;
             }
         }
