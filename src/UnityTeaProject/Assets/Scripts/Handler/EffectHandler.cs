@@ -31,13 +31,6 @@ namespace TeaProject
         {
             //如果没有动画委托，则直接返回
             if (m_funcDic.Count <= 0) return;
-
-            for (int i = 0; i < m_funcDic.Keys.Count; i++)
-            {
-                if (!m_funcDic[m_funcDic.Keys.ElementAt(i)]()) continue;
-                m_funcDic.Remove(m_funcDic.Keys.ElementAt(i));
-            }
-            
             for (int i = 0; i < m_funcDic.Count; i++)
             {
                 if (!m_funcDic[m_funcDic.Keys.ElementAt(i)]()) continue;
