@@ -26,7 +26,7 @@ namespace TeaProject.UI
         [SerializeField] private Slider m_progressBar;
 
         //总加载时间
-        private float m_totalTime = 3;
+        // private float m_totalTime = 3;
 
         //当前时间
         private float m_currentTime;

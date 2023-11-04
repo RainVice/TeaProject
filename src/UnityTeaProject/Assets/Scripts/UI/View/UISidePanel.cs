@@ -62,13 +62,5 @@ namespace TeaProject.UI
         }
         #endregion
 
-        #region Public or protected method
-        
-        #endregion
-
-        #region Private method
-
-        #endregion
-
     }
 }

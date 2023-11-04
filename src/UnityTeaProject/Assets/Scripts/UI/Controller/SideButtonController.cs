@@ -22,11 +22,22 @@ namespace TeaProject.UI
     /// </summary>
     public class SideButtonController : MonoBehaviour
     {
+        #region Public or protected fields and properties
+        public ZFrame[] ZFrames
+        {
+            set => m_frames = value;
+        }
+        public ZCameraRig ZCameraRig
+        {
+            set => m_zCameraRig = value;
+        }
+        #endregion
+        
         #region Private fields and properties
         //相机
         [SerializeField] private ZCameraRig m_zCameraRig;
         //ZFrame集合
-        [SerializeField] private List<ZFrame> m_frames;
+        [SerializeField] private ZFrame[] m_frames;
         //顶部图片
         [SerializeField] private RectTransform m_topImage;
         //底部图片
@@ -51,11 +62,11 @@ namespace TeaProject.UI
             var toggles = GetComponentsInChildren<Toggle>();
             foreach (var toggle in toggles)
             {
+                //获取当前toggle索引
+                var index = Array.IndexOf(toggles, toggle);
                 toggle.onValueChanged.AddListener(isSelect =>
                 {
                     if (!isSelect) return;
-                    //获取当前点击的索引
-                    var index = Array.IndexOf(toggles, toggle);
                     //切换当前进度，不进行操作
                     if (index == m_currentProgress)
                     {
@@ -74,7 +85,6 @@ namespace TeaProject.UI
                 });
             }
         }
-
         private IEnumerator SwitchZFrame(int index)
         {
             //合上图片
@@ -90,6 +100,7 @@ namespace TeaProject.UI
         }
         
         #endregion
+
 
     }
 }

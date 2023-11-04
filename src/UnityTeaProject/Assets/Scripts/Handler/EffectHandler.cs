@@ -3,7 +3,7 @@
 // Author Name          : 欧阳晨昊
 // Create Time          : 2023年11月2日
 // Last Modified Time   : 2023年11月2日
-// Description          : UI动效运行中心
+// Description          : UI动效处理器
 //**********************************************************************
 
 using System;
@@ -14,9 +14,9 @@ using TeaProject.Utility;
 namespace TeaProject
 {
     /// <summary>
-    /// UI动效运行中心
+    /// UI动效处理器
     /// </summary>
-    public class EffectCenter : MonoSingleton<EffectCenter>
+    public class EffectHandler : MonoSingleton<EffectHandler>
     {
         #region private fields and properties
         /// <summary>

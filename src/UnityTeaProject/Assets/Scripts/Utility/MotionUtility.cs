@@ -31,7 +31,7 @@ namespace TeaProject.Utility
         /// <returns></returns>
         public static void MovePosX(this RectTransform rectTransform, float x, float f)
         {
-            EffectCenter.Instance.AddAction(rectTransform, () =>
+            EffectHandler.Instance.AddAction(rectTransform, () =>
             {
                 var anchoredPosition = rectTransform.anchoredPosition;
                 rectTransform.anchoredPosition = Vector2.Lerp(anchoredPosition,
@@ -49,7 +49,7 @@ namespace TeaProject.Utility
         /// <returns></returns>
         public static void MovePosY(this RectTransform rectTransform, float y, float f)
         {
-            EffectCenter.Instance.AddAction(rectTransform, () =>
+            EffectHandler.Instance.AddAction(rectTransform, () =>
             {
                 var anchoredPosition = rectTransform.anchoredPosition;
                 rectTransform.anchoredPosition = Vector2.Lerp(anchoredPosition,
@@ -66,7 +66,7 @@ namespace TeaProject.Utility
         /// <param name="f">需要的时间</param>
         public static void ChangeColor(this Text text, Color toColor, float f)
         {
-            EffectCenter.Instance.AddAction(text, () =>
+            EffectHandler.Instance.AddAction(text, () =>
             {
                 text.color = Color.Lerp(text.color, toColor, Time.deltaTime / f);
                 return IsFinish(text.color.r, toColor.r) &&

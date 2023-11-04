@@ -14,18 +14,19 @@ using UnityEngine.UI;
 namespace TeaProject.UI
 {
     /// <summary>
-    /// 请修改类描述。
+    /// 切换按钮的控制脚本
     /// </summary>
-    public class UISideItem : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+    public class UISideItem : UIView,IPointerEnterHandler,IPointerExitHandler
     {
         #region Private fields and properties
+        //Toggle
+        [SerializeField] private Toggle m_Toggle;
         //提示文本
         [SerializeField] private Text m_text;
-        //携程
-        private Coroutine m_coroutine;
         #endregion
 
         #region Unity Callback
+        
         public void OnPointerEnter(PointerEventData eventData)
         {
             m_text.ChangeColor(Color.gray,0.1f);
@@ -36,5 +37,11 @@ namespace TeaProject.UI
             m_text.ChangeColor(Color.clear, 0.1f);
         }
         #endregion
+
+        protected override void KeyDownEvent()
+        {
+            m_Toggle.isOn = false;
+            m_Toggle.isOn = true;
+        }
     }
 }

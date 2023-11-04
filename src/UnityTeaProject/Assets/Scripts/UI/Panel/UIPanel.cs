@@ -14,7 +14,7 @@ namespace TeaProject.UI
     /// <summary>
     /// UI面板基类
     /// </summary>
-    public class UIPanel : MonoBehaviour
+    public abstract class UIPanel : MonoBehaviour
     {
         #region Public or protected fields and properties
 
@@ -25,15 +25,6 @@ namespace TeaProject.UI
         #endregion
 
         #region Unity Callback
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                // todo 显示设置面板
-            }
-        }
-
         #endregion
 
         #region Public or protected method

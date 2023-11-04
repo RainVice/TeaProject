@@ -6,6 +6,7 @@
 // Description          : 右键菜单中创建UI界面通用面板
 //**********************************************************************
 
+using GCSeries.Core;
 using TeaProject.UI;
 using UnityEditor;
 using UnityEngine;
@@ -19,19 +20,18 @@ namespace TeaProject.Menu
     public class UIMenu : MonoBehaviour
     {
 
-
         #region Public or protected method
         /// <summary>
-        /// 创建左侧面板
+        /// 创建左侧面板，需要在ZCanvas下创建
         /// </summary>
         [MenuItem("GameObject/Tea/LeftPanel",false,0)]
         static void CreateLeftPanel()
         {
             CreateSidePanel("LeftPanel",true);
-
         }
+        
         /// <summary>
-        /// 创建右侧面板
+        /// 创建右侧面板，需要在ZCanvas下创建
         /// </summary>
         [MenuItem("GameObject/Tea/RightPlan",false,0)]
         static void CreateRightPanel()
@@ -40,8 +40,9 @@ namespace TeaProject.Menu
             UISidePanel uiSidePanel = rightPanel.GetComponent<UISidePanel>();
             uiSidePanel.IsLift = false;
         }
+        
         /// <summary>
-        /// 创建侧边按钮Group
+        /// 创建侧边按钮Group，需要在ZCanvas下创建，其中会自动根据ZFrame数量创建SideBtnItem
         /// </summary>
         [MenuItem("GameObject/Tea/SideBtnGroup",false,0)]
         static void CreateSideBtnGroup()
@@ -53,23 +54,45 @@ namespace TeaProject.Menu
                 GameObject perfab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
                 GameObject obj = Instantiate(perfab, Selection.activeGameObject.transform);
                 obj.name = "SideBtnGroup";
+                //获取SideButtonController
+                var sideButtonController = obj.GetComponent<SideButtonController>();
+                //获取场景中所有ZFrame组件
+                var frames = FindObjectsOfType<ZFrame>();
+                //添加到SideBtnGroup
+                sideButtonController.ZFrames = frames;
+                //找到ZCameraRig,添加到SideButtonController
+                sideButtonController.ZCameraRig = FindObjectOfType<ZCameraRig>();
+                
+                
+                ToggleGroup toggleGroup = obj.GetComponentInChildren<ToggleGroup>();
+                var prefabId = AssetDatabase.FindAssets("SideBtnItem t:Prefab")[0];
+                var itemPath = AssetDatabase.GUIDToAssetPath(prefabId);
+                var atPath = AssetDatabase.LoadAssetAtPath(itemPath, typeof(GameObject)) as GameObject;
+                //生成item
+                for (var i = 0; i < frames.Length; i++)
+                {
+                    var instantiate = Instantiate(atPath, toggleGroup.transform);
+                    instantiate.GetComponent<Toggle>().group = toggleGroup;
+                }
+                Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
             }
         }
+        
         ///
         /// <summary>
-        /// 创建侧边按钮
+        /// 创建侧边按钮，普通按钮，需要自定义按钮点击事件
         /// </summary>
-        [MenuItem("GameObject/Tea/SideBtnItem",false,0)]
-        static void CreateSideBtnItem()
+        [MenuItem("GameObject/Tea/SideBtn",false,0)]
+        static void CreateSideBtn()
         {
-            string[] prefab = AssetDatabase.FindAssets("SideBtnItem t:Prefab");
-            foreach (string s in prefab)
+            string[] prefabs = AssetDatabase.FindAssets("SideBtn t:Prefab");
+            foreach (string s in prefabs)
             {
                 string assetPath = AssetDatabase.GUIDToAssetPath(s);
                 GameObject perfab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
                 GameObject obj = Instantiate(perfab, Selection.activeGameObject.transform);
                 obj.GetComponent<Toggle>().group = obj.GetComponentInParent<ToggleGroup>();
-                obj.name = "SideBtnItem";
+                Undo.RegisterCreatedObjectUndo(obj, $"Create {obj.name}");
             }
         }
         
